@@ -1,0 +1,22 @@
+{
+  "verdict": "request_changes",
+  "summary": "The elapsed computation is reversed (start - now), so response.elapsed is always negative.",
+  "findings": [
+    {
+      "file": "httpx/_client.py",
+      "line": 127,
+      "severity": "blocker",
+      "category": "correctness",
+      "explanation": "`elapsed = self._start - time.perf_counter()` yields a negative number (start is earlier than now), so Response.elapsed becomes a negative timedelta; elapsed is a public attribute and may break timing logic and tests that assert elapsed >= 0.",
+      "suggested_fix": "`elapsed = time.perf_counter() - self._start`"
+    },
+    {
+      "file": "httpx/_client.py",
+      "line": 151,
+      "severity": "blocker",
+      "category": "correctness",
+      "explanation": "Same reversed subtraction in BoundAsyncStream.aclose; async responses also get negative elapsed.",
+      "suggested_fix": "`elapsed = time.perf_counter() - self._start`"
+    }
+  ]
+}

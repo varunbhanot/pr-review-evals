@@ -1,0 +1,5 @@
+{
+  "verdict": "approve",
+  "summary": "mypy bump and removal of now-unneeded type: ignore comments in tests; no runtime changes.",
+  "findings": []
+}

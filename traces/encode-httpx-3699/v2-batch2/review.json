@@ -1,0 +1,5 @@
+{
+  "verdict": "approve",
+  "summary": "Adds FunctionAuth to the public exports and changelog; consistent and covered by the exported-members test.",
+  "findings": []
+}

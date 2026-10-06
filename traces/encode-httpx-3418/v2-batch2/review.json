@@ -1,0 +1,14 @@
+{
+  "verdict": "request_changes",
+  "summary": "The new str branch is supposed to error on verify-as-str but builds an unused message and returns the string, so the deprecated usage keeps failing obscurely later.",
+  "findings": [
+    {
+      "file": "httpx/_config.py",
+      "line": 41,
+      "severity": "blocker",
+      "category": "correctness",
+      "explanation": "The branch constructs `msg` but never raises it; it then does `return verify  # type: ignore`, returning a str as an SSLContext. The PR's purpose (error explicitly) is not achieved, and callers get an AttributeError/TypeError later when the str is used as a context. The `# pragma: nocover` also hides the branch from coverage.",
+      "suggested_fix": "`raise TypeError(msg)` (or similar) instead of returning, and add a test."
+    }
+  ]
+}

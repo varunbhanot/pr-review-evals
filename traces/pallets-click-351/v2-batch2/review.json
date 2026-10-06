@@ -1,0 +1,14 @@
+{
+  "verdict": "comment",
+  "summary": "Swallowing KeyboardInterrupt around the pager write matches the intent, but the stdin close is skipped when interrupted.",
+  "findings": [
+    {
+      "file": "click/_termui_impl.py",
+      "line": 309,
+      "severity": "minor",
+      "category": "error-handling",
+      "explanation": "If KeyboardInterrupt (or IOError) is raised in write(), `c.stdin.close()` is skipped, leaving the pipe open until garbage collection; the pager never receives EOF for the partial data, and the later wait loop depends on the user quitting the pager.",
+      "suggested_fix": "Move close() into a finally block (guarded for IOError) so EOF is always delivered."
+    }
+  ]
+}

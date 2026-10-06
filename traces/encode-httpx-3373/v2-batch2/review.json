@@ -1,0 +1,22 @@
+{
+  "verdict": "request_changes",
+  "summary": "The new URLENCODE_SAFE set leaves '+' unescaped despite the comment saying it is escaped, so literal plus signs in param values will be decoded as spaces by servers.",
+  "findings": [
+    {
+      "file": "httpx/_urls.py",
+      "line": 26,
+      "severity": "blocker",
+      "category": "correctness",
+      "explanation": "The safe set is built from 0x20-0x7E minus (space, \", #, %, &, <, =, >) but does not exclude 0x2B ('+'). The comment says '+' is additionally escaped, yet urlencode(..., safe=URLENCODE_SAFE) will emit a literal '+' for a '+' in a value, while spaces are now also emitted as '+'. Params like {'q': 'a+b'} become indistinguishable from 'a b', corrupting data.",
+      "suggested_fix": "Add 0x2B to the exclusion list so '+' is encoded as %2B."
+    },
+    {
+      "file": "tests/models/test_url.py",
+      "line": 144,
+      "severity": "minor",
+      "category": "tests",
+      "explanation": "No test covers a literal '+' (or other reserved characters) in param values, which would have caught the escaping gap above.",
+      "suggested_fix": "Add a test such as params={'a': 'b+c'} expecting 'a=b%2Bc'."
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "verdict": "approve",
+  "summary": "Mechanical reformatting and ruff version bump; behaviour is unchanged.",
+  "findings": []
+}

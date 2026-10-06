@@ -1,0 +1,14 @@
+{
+  "verdict": "comment",
+  "summary": "Switching the temp file to text mode fixes the TypeError and works via the proxied .buffer, but the types and encoding handling are now inconsistent.",
+  "findings": [
+    {
+      "file": "src/click/_termui_impl.py",
+      "line": 628,
+      "severity": "minor",
+      "category": "correctness",
+      "explanation": "The file is opened in text mode with no `encoding`, so it uses the locale default for the text layer, while the yielded `encoding` (from sys.stdout) is applied by MaybeStripAnsi over `.buffer`. The `t.cast(t.BinaryIO, f)` is now wrong since f is a text file; it only works because _TemporaryFileWrapper proxies `.buffer`.",
+      "suggested_fix": "Pass encoding=encoding to NamedTemporaryFile, and cast/annotate as TextIO."
+    }
+  ]
+}

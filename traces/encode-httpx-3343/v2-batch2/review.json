@@ -1,0 +1,30 @@
+{
+  "verdict": "request_changes",
+  "summary": "Inlining the compat module drops the zstandard minimum-version guard and widens the zstd error handling to bare Exception; brotli import preference is also silently reversed.",
+  "findings": [
+    {
+      "file": "httpx/_decoders.py",
+      "line": 178,
+      "severity": "major",
+      "category": "correctness",
+      "explanation": "The deleted _compat.py set zstd=None for zstandard < 0.18 because ZstdDecompressobj.eof/unused_data (used in ZStandardDecoder.decode) only exist from 0.18. The inlined import has no version check, so with an older installed zstandard the decoder is still registered and fails at decode time with AttributeError, which is then wrapped into a misleading DecodingError.",
+      "suggested_fix": "Restore the version check (parse zstandard.__version__, set zstandard=None if < 0.18) alongside the import."
+    },
+    {
+      "file": "httpx/_decoders.py",
+      "line": 188,
+      "severity": "major",
+      "category": "error-handling",
+      "explanation": "`except zstd.ZstdError` was replaced with `except Exception`, which swallows programming errors (AttributeError, TypeError, MemoryError subclasses etc.) and reports them as DecodingError, hiding bugs.",
+      "suggested_fix": "Use `except zstandard.ZstdError as exc`."
+    },
+    {
+      "file": "httpx/_decoders.py",
+      "line": 17,
+      "severity": "minor",
+      "category": "correctness",
+      "explanation": "Import order for brotli was flipped: previously brotlicffi was preferred (recommended for PyPy and everything else), now `brotli` is tried first. If both are installed, behaviour changes silently, and the comment now contradicts the previous guidance.",
+      "suggested_fix": "Try brotlicffi first as before, or document the intentional change."
+    }
+  ]
+}

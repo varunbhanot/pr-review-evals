@@ -1,0 +1,5 @@
+{
+  "verdict": "approve",
+  "summary": "Typing-only change loosening extensions to Mapping; no runtime behaviour change.",
+  "findings": []
+}
