@@ -1,0 +1,38 @@
+{
+  "verdict": "request_changes",
+  "summary": "Adds explicit multipart boundary parsing from the Content-Type header, but the Request constructor calls encode_request with a nonexistent `encoding=` keyword, which breaks every Request built without a stream.",
+  "findings": [
+    {
+      "file": "httpx/_models.py",
+      "line": 341,
+      "severity": "blocker",
+      "category": "correctness",
+      "explanation": "encode_request's signature is (content, data, files, json, boundary). It has no `encoding` parameter, so `encoding=json` raises TypeError: unexpected keyword argument on every Request constructed without a stream (i.e. nearly all requests). Even if the keyword were accepted, the JSON payload would not reach the `json` parameter, so json= bodies would be silently dropped.",
+      "suggested_fix": "Pass `json=json` instead of `encoding=json`."
+    },
+    {
+      "file": "httpx/_content.py",
+      "line": 153,
+      "severity": "minor",
+      "category": "correctness",
+      "explanation": "The default `= None` was removed from encode_multipart_data's `boundary` parameter, making it a required argument and needlessly changing the signature. Any other caller of encode_multipart_data(data, files) would now fail with TypeError. It is harmless only because encode_request is the sole in-repo caller.",
+      "suggested_fix": "Keep `boundary: Optional[bytes] = None`."
+    },
+    {
+      "file": "httpx/_multipart.py",
+      "line": 33,
+      "severity": "minor",
+      "category": "correctness",
+      "explanation": "Boundary parsing splits naively on ';' and only strips double quotes, so a quoted boundary containing ';' would be truncated. The prefix check `startswith(b\"multipart/form-data\")` is also case-sensitive, so a `Multipart/Form-Data` header is ignored and a random boundary is generated, which then mismatches the user's header. Also, a user-supplied boundary is not validated against RFC 2046 constraints.",
+      "suggested_fix": "Lower-case the media type before comparing, and consider a proper parameter parser (e.g. email.message / cgi.parse_header equivalent) for the boundary."
+    },
+    {
+      "file": "tests/test_multipart.py",
+      "line": 45,
+      "severity": "minor",
+      "category": "tests",
+      "explanation": "New tests only cover files= uploads with a user-supplied Content-Type. There are no tests for a non-multipart Content-Type combined with files, or for json=/data= requests with a Content-Type header, the paths that would have exposed the encoding= TypeError.",
+      "suggested_fix": "Add tests for json= with an explicit content-type header, and for a case-variant multipart content-type."
+    }
+  ]
+}
