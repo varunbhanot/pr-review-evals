@@ -1,0 +1,17 @@
+{
+  "owner": "encode",
+  "repo": "httpx",
+  "number": 3367,
+  "title": "Ensure JSON representation is compact. #3363",
+  "body": "<!-- Thanks for contributing to HTTPX! \ud83d\udc9a\r\nGiven this is a project maintained by volunteers, please read this template to not waste your time, or ours! \ud83d\ude01 -->\r\n\r\n# Summary\r\n\r\nthis PR solves the issues mentionned here #3363\r\n\r\n> The following related issues could all be resolved together...\r\n> \r\n> We should use ensure_ascii=False for more compact text representations.\r\n> We should use separators = (',', ':') for more compact list and object representations.\r\n> We should use allow_nan=False to disallow invalid Infinity and NaN representations.\r\n\r\n# Checklist\r\n\r\n- [x] I understand that this PR may be closed in case there was no previous discussion. (This doesn't apply to typos!)\r\n- [x] I've added a test for each change that was introduced, and I tried as much as possible to make a single atomic change.\r\n- [x] I've updated the documentation accordingly.\r\n",
+  "author": "BERRADA-Omar",
+  "url": "https://github.com/encode/httpx/pull/3367",
+  "additions": 53,
+  "deletions": 14,
+  "changed_files": 7,
+  "merged_at": "2024-10-28T14:40:22Z",
+  "base_sha": "8e36f2bc685dfbe43cd7503bc1c422a6ed6e05a5",
+  "head_sha": "fa17a052f90af8b3cc90ffa4589adf17f5c4a663",
+  "merge_commit_sha": "9fd6f0ca6616d0310a3ee0b0c6ef509a97995797",
+  "slug": "encode-httpx-3367"
+}

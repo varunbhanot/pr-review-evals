@@ -1,0 +1,17 @@
+{
+  "owner": "pallets",
+  "repo": "click",
+  "number": 3865,
+  "title": "Fix short help abbreviation",
+  "body": "Just a small bug I encountered in my CLIs, where as `vs.` or `e.g.` was prematurely ending the shorten version of a help message produced by `_make_default_short_help`.\r\n\r\nAlso use the opportunity to simplify the calculations and depends on Python's `textwrap.shorten`.",
+  "author": "kdeldycke",
+  "url": "https://github.com/pallets/click/pull/3865",
+  "additions": 49,
+  "deletions": 34,
+  "changed_files": 3,
+  "merged_at": "2026-09-12T02:35:08Z",
+  "base_sha": "6d5bac5c712195cbfa9666ba0ecbf0573cdea356",
+  "head_sha": "f67c2bb6c2f055c1c7a57cd46c3697fc26a7742e",
+  "merge_commit_sha": "70689853e39c30e36eb0d83d586cc914a74db9d3",
+  "slug": "pallets-click-3865"
+}

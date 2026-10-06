@@ -1,0 +1,17 @@
+{
+  "owner": "encode",
+  "repo": "httpx",
+  "number": 3378,
+  "title": "Cleanup `Request` method parameter.",
+  "body": "The `Request()` class currently has a `method` parameter that's out of sync with `client.request(...)` and `httpx.request(...)`. This is nominally an API change, tho I think it's *actually* a bugfix in practice.",
+  "author": "lovelydinosaur",
+  "url": "https://github.com/encode/httpx/pull/3378",
+  "additions": 3,
+  "deletions": 6,
+  "changed_files": 2,
+  "merged_at": "2024-10-29T15:31:31Z",
+  "base_sha": "12be5c44caa7a34bfe19f82eace5150ddeba2612",
+  "head_sha": "86efecb3baf715c26d6a5c50b5b5a13df855661f",
+  "merge_commit_sha": "66225539796d819b5114ead2fd5e4d61865ab708",
+  "slug": "encode-httpx-3378"
+}

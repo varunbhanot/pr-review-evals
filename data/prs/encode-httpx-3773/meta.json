@@ -1,0 +1,17 @@
+{
+  "owner": "encode",
+  "repo": "httpx",
+  "number": 3773,
+  "title": "Adapt test_response_decode_text_using_autodetect for chardet 6.0",
+  "body": "<!-- Thanks for contributing to HTTPX! \ud83d\udc9a\r\nGiven this is a project maintained by volunteers, please read this template to not waste your time, or ours! \ud83d\ude01 -->\r\n\r\n# Summary\r\n\r\nSee https://github.com/encode/httpx/discussions/3772. Version 6.0.0 of `chardet` detects this byte string as `WINDOWS-1252`, while previous versions detected `ISO-8859-1`. Since both are plausible (the encoded byte string decodes to the same Unicode string under either encoding), this PR adjusts the test to accept either claim.\r\n<!-- Write a small summary about what is happening here. -->\r\n\r\n# Checklist\r\n\r\n- [x] I understand that this PR may be closed in case there was no previous discussion. (This doesn't apply to typos!)\r\n- [x] I've added a test for each change that was introduced, and I tried as much as possible to make a single atomic change. **No new test required, as this fixes a test regression.**\r\n- [x] I've updated the documentation accordingly. **No documentation changes required.**\r\n",
+  "author": "musicinmybrain",
+  "url": "https://github.com/encode/httpx/pull/3773",
+  "additions": 4,
+  "deletions": 1,
+  "changed_files": 1,
+  "merged_at": "2026-02-23T10:40:42Z",
+  "base_sha": "ae1b9f66238f75ced3ced5e4485408435de10768",
+  "head_sha": "63e885394a629d194b0aa867e8fbf475cdec6521",
+  "merge_commit_sha": "b5addb64f0161ff6bfe94c124ef76f6a1fba5254",
+  "slug": "encode-httpx-3773"
+}

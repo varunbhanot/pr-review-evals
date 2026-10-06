@@ -1,0 +1,17 @@
+{
+  "owner": "pallets",
+  "repo": "click",
+  "number": 3764,
+  "title": "Fix error reporting on Windows when an error is raised in the pager ",
+  "body": "This is a follow up on #3739, which fix an issue on Windows where an exception gets replaced by a `PermissionError: [WinError 32]` error instead of being raised within a pager.\r\n\r\nAlso of note, this restore a fix that was pushed in 8.0.2 by #1905 / #1956 / #2036 which was not reintegrated by the #1572 new feature for 8.4.0.",
+  "author": "kdeldycke",
+  "url": "https://github.com/pallets/click/pull/3764",
+  "additions": 69,
+  "deletions": 3,
+  "changed_files": 3,
+  "merged_at": "2026-08-16T23:40:03Z",
+  "base_sha": "150d1071d69c5cdad7de78590013ffe56cf9e3bb",
+  "head_sha": "1f9cd54f686eb343cec714230ad825ce972739ab",
+  "merge_commit_sha": "fc5c7f45da0a4443f60ba2d322fe4bf829977739",
+  "slug": "pallets-click-3764"
+}

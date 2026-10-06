@@ -1,0 +1,17 @@
+{
+  "owner": "pallets",
+  "repo": "click",
+  "number": 3858,
+  "title": "Make `click.Path` generic on `path_type`",
+  "body": "This is an attempt to make `click.Path` generic on `path_type` following #3407.\r\n\r\nCloses #3822\r\n",
+  "author": "kdeldycke",
+  "url": "https://github.com/pallets/click/pull/3858",
+  "additions": 70,
+  "deletions": 14,
+  "changed_files": 4,
+  "merged_at": "2026-09-08T19:48:10Z",
+  "base_sha": "7944461a80b780d060899c8835acab3c273a04a6",
+  "head_sha": "22177f857a34e3c35ba957553853a37f23feb37e",
+  "merge_commit_sha": "86949d19b930ef68a45566544cb4b9508d895d0d",
+  "slug": "pallets-click-3858"
+}

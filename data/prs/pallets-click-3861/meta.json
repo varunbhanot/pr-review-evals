@@ -1,0 +1,17 @@
+{
+  "owner": "pallets",
+  "repo": "click",
+  "number": 3861,
+  "title": "Move common `help` argument from `Option` and `Argument` to `Parameter`",
+  "body": "This is a small refactor which deduplicate the management of `help` argument from `Option` and `Argument` and move it to the common `Parameter` parent class.\r\n\r\nIts only side effect is that `Parameter.to_info_dict` now reports it.\r\n\r\nThis is a follow up on #3860.",
+  "author": "kdeldycke",
+  "url": "https://github.com/pallets/click/pull/3861",
+  "additions": 61,
+  "deletions": 31,
+  "changed_files": 3,
+  "merged_at": "2026-09-10T19:29:50Z",
+  "base_sha": "86949d19b930ef68a45566544cb4b9508d895d0d",
+  "head_sha": "405a5481e4dbd5022799993d787bd8446137d9a3",
+  "merge_commit_sha": "6d5bac5c712195cbfa9666ba0ecbf0573cdea356",
+  "slug": "pallets-click-3861"
+}

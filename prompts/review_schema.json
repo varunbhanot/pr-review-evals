@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "required": ["verdict", "summary", "findings"],
+  "properties": {
+    "verdict": {
+      "type": "string",
+      "enum": ["approve", "request_changes", "comment"]
+    },
+    "summary": { "type": "string" },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["file", "line", "severity", "category", "explanation", "suggested_fix"],
+        "properties": {
+          "file": { "type": "string" },
+          "line": { "type": "integer" },
+          "severity": {
+            "type": "string",
+            "enum": ["blocker", "major", "minor", "nit"]
+          },
+          "category": {
+            "type": "string",
+            "enum": ["correctness", "security", "error-handling", "concurrency", "tests", "style", "other"]
+          },
+          "explanation": { "type": "string" },
+          "suggested_fix": { "type": "string" }
+        }
+      }
+    }
+  }
+}

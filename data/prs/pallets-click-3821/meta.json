@@ -1,0 +1,17 @@
+{
+  "owner": "pallets",
+  "repo": "click",
+  "number": 3821,
+  "title": "Add `Option.get_help_spec` to extract the help's left part of an hidden option",
+  "body": "This PR splits the production of an option's left help column into its own dedicated column. This always returns the invocation specification of an option, even if that option is hidden.\r\n\r\n`get_help_record()` on the other hand is unmodified and still keep returning the whole option's help that is to be displayed.\r\n\r\nThat distinction help separate the rendering layer:\r\n- `get_help_record()` is returning what should be displayed to the user \r\n- `get_help_spec()` is returning what the option specification is, regardless of the decision to display it to the user\r\n\r\nThis allows finer introspection of the Click machinery and its rendering pipeline.\r\n\r\nThis is the other half of a work I initiated 2 years ago with:\r\n- #2516\r\n- #2517",
+  "author": "kdeldycke",
+  "url": "https://github.com/pallets/click/pull/3821",
+  "additions": 42,
+  "deletions": 4,
+  "changed_files": 3,
+  "merged_at": "2026-09-02T13:01:39Z",
+  "base_sha": "be13b152cf5949a362926322c835fa76019cc6fe",
+  "head_sha": "271effb3d96da5575eb527216ce3552bd7628fab",
+  "merge_commit_sha": "00aca23ee9135eedc651c6929c7bc1d39e522431",
+  "slug": "pallets-click-3821"
+}

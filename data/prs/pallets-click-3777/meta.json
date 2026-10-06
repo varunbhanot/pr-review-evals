@@ -1,0 +1,17 @@
+{
+  "owner": "pallets",
+  "repo": "click",
+  "number": 3777,
+  "title": "Forward all user's parameters set in `PAGER` and improve flag detection",
+  "body": "Another PR following up on pager refactors that:\r\n- Forwards all user's parameters set in `PAGER`\r\n- Improve detection of raw mode by extending flag and option parsing\r\n- Fix detection of `less.exe` on Windows (even if not currently exercised, this make the method future-proof)\r\n\r\nBut more importantly: adds dozen of testing with weird edge-cases around pager's internal methods.\r\n\r\nFollows up on:\r\n- https://github.com/pallets/click/pull/3767\r\n- https://github.com/pallets/click/pull/3776",
+  "author": "kdeldycke",
+  "url": "https://github.com/pallets/click/pull/3777",
+  "additions": 227,
+  "deletions": 12,
+  "changed_files": 3,
+  "merged_at": "2026-08-19T15:20:27Z",
+  "base_sha": "61b69e967e525bd502f5bf42def4d551e761fe0e",
+  "head_sha": "a6256bfb5971d5e58585fe7b6c656134e1ade5a4",
+  "merge_commit_sha": "2103e157683c5e4cadc8ee1838df526a54bde9a4",
+  "slug": "pallets-click-3777"
+}

@@ -1,0 +1,17 @@
+{
+  "owner": "encode",
+  "repo": "httpx",
+  "number": 307,
+  "title": "Added support ssl cert file environment",
+  "body": "Closes #306 ",
+  "author": "cansarigol",
+  "url": "https://github.com/encode/httpx/pull/307",
+  "additions": 118,
+  "deletions": 0,
+  "changed_files": 5,
+  "merged_at": "2019-09-23T15:24:54Z",
+  "base_sha": "08355c62f56b899af15967906aa45392cd45dbdd",
+  "head_sha": "a9e8c5a67bc2d75464cf4efb98532285e38391c5",
+  "merge_commit_sha": "c9810a79d9c61583165e9aa237d1ac039086f3a8",
+  "slug": "encode-httpx-307"
+}

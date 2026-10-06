@@ -1,0 +1,17 @@
+{
+  "owner": "encode",
+  "repo": "httpx",
+  "number": 2278,
+  "title": "allow setting an explicit multipart boundary via headers",
+  "body": "Closes #2235 ",
+  "author": "adriangb",
+  "url": "https://github.com/encode/httpx/pull/2278",
+  "additions": 80,
+  "deletions": 2,
+  "changed_files": 4,
+  "merged_at": "2022-08-15T15:20:07Z",
+  "base_sha": "2434e650eeeedd0652ab73c02bcb09417edc7914",
+  "head_sha": "74de49482f0fdf49fb112d118bf580d764d18ccd",
+  "merge_commit_sha": "1526048c9417ac3c715592cbc9b5947d5779824e",
+  "slug": "encode-httpx-2278"
+}

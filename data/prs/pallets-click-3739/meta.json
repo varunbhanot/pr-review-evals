@@ -1,0 +1,17 @@
+{
+  "owner": "pallets",
+  "repo": "click",
+  "number": 3739,
+  "title": "Changed `tempfile.NamedTemporaryFile` mode to `w`",
+  "body": "Inside `src/click/_termui_impl.py`, the function `get_pager_file` delegates the creation of a tempfile to `_tempfilepager`, which returns a `BinaryIO` object of the opened file:\r\n\r\n```python\r\nf = tempfile.NamedTemporaryFile(mode=\"wb\", delete=False)\r\ntry:\r\n    yield t.cast(t.BinaryIO, f), encoding, color\r\n...\r\n```\r\nWhich is called by _pager_contextmanager in\r\n```python\r\n...\r\nif pager_cmd_parts:\r\n        if WIN:\r\n            return _tempfilepager(pager_cmd_parts, color)\r\n        return _pipepager(pager_cmd_parts, color)\r\n...\r\n    if WIN or sys.platform.startswith(\"os2\"):\r\n        return _tempfilepager([\"more\"], color)\r\n    return _pipepager([\"less\"], color)\r\n```\r\nIn the end `get_pager_file`\r\n```python\r\ndef get_pager_file(color: bool | None = None) -> t.Generator[t.TextIO, None, None]:\r\n    ...\r\n    with _pager_contextmanager(color=color) as (stream, encoding, color):\r\n    # Split streams by capabilities rather than the abstract TextIO /\r\n    # BinaryIO annotations: buffered text streams can be unwrapped to bytes,\r\n    # while other streams are yielded as-is.\r\n    wrapper: MaybeStripAnsi | None = None\r\n        if _has_binary_buffer(stream):\r\n            # Text stream backed by a binary buffer.\r\n            wrapper = MaybeStripAnsi(stream.buffer, color=color, encoding=encoding)\r\n            stream = wrapper\r\n        try:\r\n            # Narrow the BinaryIO | TextIO union that _pager_contextmanager\r\n            # yields; the caller writes text to the pager.\r\n            yield t.cast(t.TextIO, stream)\r\n        ...\r\n```\r\nIn the above `yield t.cast(t.TextIO, stream)` stream object will be `BinaryIO`, contradicting the `TextIO` annotation of the return value, all because it was created with the mode `\"wb\"` earlier.\r\n\r\nThen if a caller tries: `stream.write(\"some text\")` it will raise an exception:\r\n`TypeError: a bytes-like object is required, not 'str'`\r\n\r\nFIX:\r\nIn `_tempfilepager`, create the temp file with `mode='w'`\r\n```python\r\nf = tempfile.NamedTemporaryFile(mode=\"w\", delete=False)\r\n```\r\n\r\nCloses #3740",
+  "author": "H-Sorkatti",
+  "url": "https://github.com/pallets/click/pull/3739",
+  "additions": 77,
+  "deletions": 1,
+  "changed_files": 3,
+  "merged_at": "2026-08-14T18:51:52Z",
+  "base_sha": "9c4dfdaebe0e6b2aabc566eb81f6f10eb5cd6ea1",
+  "head_sha": "a2ac5839f29f61cf7f3f229c67b97d07988e479b",
+  "merge_commit_sha": "8b44edfff7d9a6c895fa804148c16b3a0bc9efb5",
+  "slug": "pallets-click-3739"
+}

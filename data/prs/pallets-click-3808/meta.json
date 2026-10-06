@@ -1,0 +1,17 @@
+{
+  "owner": "pallets",
+  "repo": "click",
+  "number": 3808,
+  "title": "Document type auto-conversion and test `set` and `frozenset`",
+  "body": "This is an ongoing exploration of usage of `set` and `frozenset` types in various places in the public API. It addresses the suspicion I had for a long time about inconsistent behavior, as detailed in https://github.com/pallets/click/issues/3036.\r\n\r\nThese tests for the moment only freeze the current behavior of Click. But reveals inconsistent or awkward behavior that are left to be discussed and decided upon for eventual bug fixes.\r\n\r\n1. A `set`, `frozenset` or `dict` default is guessed as a `STRING`, not a container type (`test_type_from_default_container`, `test_convert_type_from_container_default`). This contradicts the documented rule of *\"If no type is provided, the type of the default value is used\"* Should we change that so we guess a container type instead of the current `STRING`?\r\n\r\n2. An explicit `type=set` or `type=frozenset` is splitting the value provided to it (see `test_explicit_container_type_splits_string`). This looks like a bug we want to fix. My instinct is to split on commas, which overlaps an older discussion at: https://github.com/pallets/click/issues/2771#issuecomment-4750207191 and my preference for it. Also dug out an old proposal at: https://github.com/pallets/click/pull/422.\r\n\r\nAlso note that this also affects the envvars as demonstrated by my tests.\r\n\r\nCloses #3036.",
+  "author": "kdeldycke",
+  "url": "https://github.com/pallets/click/pull/3808",
+  "additions": 255,
+  "deletions": 9,
+  "changed_files": 6,
+  "merged_at": "2026-09-01T18:21:58Z",
+  "base_sha": "00f257bb8e714064bea16425007543bbc0800445",
+  "head_sha": "394088a09a210c152a4295e4a493ffdebd4c5047",
+  "merge_commit_sha": "e5cb12ba5e81ca382062a4b513daddb535a576e3",
+  "slug": "pallets-click-3808"
+}

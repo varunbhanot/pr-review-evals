@@ -1,0 +1,17 @@
+{
+  "owner": "pallets",
+  "repo": "click",
+  "number": 2630,
+  "title": "Specialize `progressbar(length=...)` as `ProgressBar[int]`",
+  "body": "\r\nChecklist:\r\n\r\n- [x] Add tests that demonstrate the correct behavior of the change. Tests should fail without the change.\r\n- [x] Add or update relevant docs, in the docs folder and in code. N/A\r\n- [x] Add an entry in `CHANGES.rst` summarizing the change and linking to the issue.\r\n- [x] Add `.. versionchanged::` entries in any relevant code docs.\r\n- [x] Run `pre-commit` hooks and fix any issues.\r\n- [x] Run `pytest` and `tox`, no tests failed.\r\n",
+  "author": "asottile",
+  "url": "https://github.com/pallets/click/pull/2630",
+  "additions": 67,
+  "deletions": 0,
+  "changed_files": 3,
+  "merged_at": "2024-11-08T23:57:43Z",
+  "base_sha": "0d69b6ce8b25fe31ea580c608adb8e45df3805bb",
+  "head_sha": "45fe59f9339c6c54ab570ca491b51e338799b0cc",
+  "merge_commit_sha": "2cabbe3175026695210fe0bf9b179fd62d52634f",
+  "slug": "pallets-click-2630"
+}

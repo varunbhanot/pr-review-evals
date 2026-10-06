@@ -1,0 +1,17 @@
+{
+  "owner": "encode",
+  "repo": "httpx",
+  "number": 3371,
+  "title": "Review URL percent escaping sets, from whatwg.",
+  "body": "Review and update which characters should be percent escaped when parsing & normalising URLs.\r\nBased on the URL living standard... https://url.spec.whatwg.org/\r\n\r\nPrompted by https://github.com/encode/httpx/discussions/3360\r\n",
+  "author": "lovelydinosaur",
+  "url": "https://github.com/encode/httpx/pull/3371",
+  "additions": 71,
+  "deletions": 27,
+  "changed_files": 2,
+  "merged_at": "2024-10-28T15:06:10Z",
+  "base_sha": "489fef48ba8619c7604376165c7e8007398e1b5d",
+  "head_sha": "798954ec928bfaeee7ef8ed69a86f9d91892ddcd",
+  "merge_commit_sha": "d293374b6603816420a2bb8e7f4fe5a5f09cbfcc",
+  "slug": "encode-httpx-3371"
+}

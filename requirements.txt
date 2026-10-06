@@ -1,0 +1,4 @@
+# Week 0 needs only the Python stdlib plus the GitHub CLI (`gh`) and Claude Code.
+# No pip packages required for fetch / seed / score / run_review.
+# Add eval tooling later (Week 2+), for example:
+# judgy

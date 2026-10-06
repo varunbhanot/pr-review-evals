@@ -1,0 +1,22 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Local clones / worktrees
+data/repos/
+data/worktrees/
+
+# Never commit answer keys (they live in ../pr-review-evals-answers/)
+**/ground_truth.json
+**/mutated.diff
+**/diff.patch
+**/last_score.json
+**/head_files/
+**/files.json
+mutated/
+
+# Traces may be committed later from cloud review branches; ignore local scratch
+traces/_*/
+*.score.json
+.last_claude_session

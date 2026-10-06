@@ -1,0 +1,17 @@
+{
+  "owner": "encode",
+  "repo": "httpx",
+  "number": 3442,
+  "title": "Fix `verify=False`, `cert=...` case.",
+  "body": "Fix for the case where `verify=False` and client-side certs are being used.\r\n\r\nRefs #3441.\r\n",
+  "author": "lovelydinosaur",
+  "url": "https://github.com/encode/httpx/pull/3442",
+  "additions": 7,
+  "deletions": 4,
+  "changed_files": 2,
+  "merged_at": "2024-12-04T11:29:09Z",
+  "base_sha": "8ecb86f0d74ffc52d4663214fae9526bee89358d",
+  "head_sha": "9d5e7341458f37044853b627a80e768826ebdaa1",
+  "merge_commit_sha": "89599a9541af14bcf906fc4ed58ccbdf403802ba",
+  "slug": "encode-httpx-3442"
+}

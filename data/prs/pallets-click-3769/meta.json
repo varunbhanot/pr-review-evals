@@ -1,0 +1,17 @@
+{
+  "owner": "pallets",
+  "repo": "click",
+  "number": 3769,
+  "title": "Settles progress bar on its final position",
+  "body": "This fix has been shipped in Click Extra for a couple of weeks and has been tested on a couple of production ready CLIs.\r\n\r\nCloses #3571.\r\n\r\nThis PR unfortunately close the honeypot of lazy LLMs contributions. \ud83d\ude01",
+  "author": "kdeldycke",
+  "url": "https://github.com/pallets/click/pull/3769",
+  "additions": 43,
+  "deletions": 0,
+  "changed_files": 3,
+  "merged_at": "2026-08-15T17:56:58Z",
+  "base_sha": "8b44edfff7d9a6c895fa804148c16b3a0bc9efb5",
+  "head_sha": "f316d5cb3aa89b57c14aee54da6ac9062ac5bec4",
+  "merge_commit_sha": "150d1071d69c5cdad7de78590013ffe56cf9e3bb",
+  "slug": "pallets-click-3769"
+}
