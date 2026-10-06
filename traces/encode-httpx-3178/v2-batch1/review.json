@@ -1,0 +1,22 @@
+{
+  "verdict": "request_changes",
+  "summary": "Transport accepts socks5h, but Proxy validation in _config.py still rejects it, so socks5h proxies fail before reaching the transport.",
+  "findings": [
+    {
+      "file": "httpx/_config.py",
+      "line": 265,
+      "severity": "blocker",
+      "category": "correctness",
+      "explanation": "The scheme allow-list `(\"http\", \"https\", \"socks5\")` was not updated (the diff hunk is a no-op), so `httpx.Proxy(\"socks5h://...\")` raises ValueError 'Unknown scheme for proxy URL'. The updated test and the transport changes are unreachable and the test would fail.",
+      "suggested_fix": "Change to `(\"http\", \"https\", \"socks5\", \"socks5h\")`."
+    },
+    {
+      "file": "httpx/_transports/default.py",
+      "line": 367,
+      "severity": "minor",
+      "category": "other",
+      "explanation": "The async transport's error message string is missing the `f` prefix, so `{proxy.url.scheme!r}` is printed literally.",
+      "suggested_fix": "Prefix the continuation string with f."
+    }
+  ]
+}

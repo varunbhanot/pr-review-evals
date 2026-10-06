@@ -1,0 +1,14 @@
+{
+  "verdict": "request_changes",
+  "summary": "The type check is inverted: it now raises TypeError for every str header value and lets None through to .encode().",
+  "findings": [
+    {
+      "file": "httpx/_utils.py",
+      "line": 53,
+      "severity": "blocker",
+      "category": "correctness",
+      "explanation": "`if isinstance(value, str): raise TypeError` rejects all normal string header values, breaking essentially all requests, while None still falls through to `value.encode` and raises AttributeError, so the new test fails.",
+      "suggested_fix": "Use `if not isinstance(value, str):` raise TypeError."
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "verdict": "request_changes",
+  "summary": "Literal '%' in username/password is no longer escaped, producing invalid/ambiguous userinfo, and tests were rewritten to accept it.",
+  "findings": [
+    {
+      "file": "httpx/_urlparse.py",
+      "line": 66,
+      "severity": "blocker",
+      "category": "correctness",
+      "explanation": "USERNAME_SAFE/PASSWORD_SAFE are built from range(0x20,0x7F) and do not exclude 0x25 '%', so a literal '%' passed via username=/password= (copy_with, URL kwargs) is left unescaped. A password like 'abc123@ %' becomes '...%20%@host', a malformed escape that re-parses differently and breaks round-tripping. For kwargs (unlike URL strings) '%' must be escaped to %25.",
+      "suggested_fix": "Add 0x25 to the excluded set for USERNAME_SAFE and PASSWORD_SAFE."
+    },
+    {
+      "file": "tests/models/test_url.py",
+      "line": 617,
+      "severity": "major",
+      "category": "tests",
+      "explanation": "The test expectations were changed from `%25` to a bare `%` in str(new) and userinfo, encoding the regression rather than catching it.",
+      "suggested_fix": "Restore the `%25` expectations."
+    }
+  ]
+}

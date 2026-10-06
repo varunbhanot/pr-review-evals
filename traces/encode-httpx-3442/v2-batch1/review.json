@@ -1,0 +1,5 @@
+{
+  "verdict": "approve",
+  "summary": "verify=False now falls through to the shared cert-loading code, fixing client certs with verify disabled.",
+  "findings": []
+}

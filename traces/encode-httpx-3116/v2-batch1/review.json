@@ -1,0 +1,30 @@
+{
+  "verdict": "request_changes",
+  "summary": "The new _set_timeout helper has its condition inverted, so it never applies the client timeout to requests lacking one and would instead overwrite explicit timeouts.",
+  "findings": [
+    {
+      "file": "httpx/_client.py",
+      "line": 566,
+      "severity": "blocker",
+      "category": "correctness",
+      "explanation": "`if \"timeout\" in request.extensions` is inverted. For a bare httpx.Request (the case this PR targets) no timeout key exists, so nothing is set and the client timeout is still ignored; for requests built via build_request (which already carry a timeout) it replaces the per-request timeout with the client default.",
+      "suggested_fix": "Use `if \"timeout\" not in request.extensions:`."
+    },
+    {
+      "file": "httpx/_client.py",
+      "line": 569,
+      "severity": "major",
+      "category": "correctness",
+      "explanation": "`isinstance(self.timeout, UseClientDefault)` is the wrong check: self.timeout is a Timeout (never UseClientDefault), so it always goes to Timeout(self.timeout). The intent is to use self.timeout directly when it is already a Timeout.",
+      "suggested_fix": "Use `self.timeout if isinstance(self.timeout, Timeout) else Timeout(self.timeout)`."
+    },
+    {
+      "file": "tests/test_timeouts.py",
+      "line": 46,
+      "severity": "minor",
+      "category": "tests",
+      "explanation": "Only an async test is added; the sync Client.send path also changed and is untested. With a 1e-6 timeout the async test would also pass for the wrong reasons if any timeout were applied.",
+      "suggested_fix": "Add a sync test and a test that an explicit per-request timeout is preserved."
+    }
+  ]
+}

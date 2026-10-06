@@ -1,0 +1,5 @@
+{
+  "verdict": "approve",
+  "summary": "Adds the missing f-string prefix so the proxy scheme is shown in the error message.",
+  "findings": []
+}

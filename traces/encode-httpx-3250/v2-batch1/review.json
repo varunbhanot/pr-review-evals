@@ -1,0 +1,22 @@
+{
+  "verdict": "request_changes",
+  "summary": "The improved error message picks the offending character with a wrong predicate in the URL path, reporting the wrong character and position.",
+  "findings": [
+    {
+      "file": "httpx/_urlparse.py",
+      "line": 162,
+      "severity": "blocker",
+      "category": "correctness",
+      "explanation": "`next(char for char in url if char.isascii() or not char.isprintable())` uses `or` where the detection above uses `and`. It returns the first ASCII character (e.g. 'h' at position 0) rather than the control character, so the message is wrong for essentially every URL (the updated test expecting '\\n' at position 24 fails). For all-printable non-ASCII URLs mixed with control chars it is also wrong.",
+      "suggested_fix": "Use `char.isascii() and not char.isprintable()`, matching the component branch."
+    },
+    {
+      "file": "httpx/_urlparse.py",
+      "line": 163,
+      "severity": "nit",
+      "category": "correctness",
+      "explanation": "`url.find(char)` is fine for the first match but redundant; use enumerate to get the index directly.",
+      "suggested_fix": "Iterate with enumerate."
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "verdict": "request_changes",
+  "summary": "Percent-encode helper emits lowercase hex, which violates the uppercase convention and breaks the PR's own expected params output.",
+  "findings": [
+    {
+      "file": "httpx/_urlparse.py",
+      "line": 410,
+      "severity": "blocker",
+      "category": "correctness",
+      "explanation": "PERCENT formats with `:02x` (lowercase), while the removed helper uppercased. `params={\"u\": \"http://example.com?q=foo%2Fa\"}` now yields `http%3a%2f%2f...` but the added test expects `http%3A%2F%2F...`. Non-ASCII characters and normalization/equality comparisons are also affected (RFC 3986 prefers uppercase).",
+      "suggested_fix": "Use `f\"%{byte:02X}\"`."
+    }
+  ]
+}
