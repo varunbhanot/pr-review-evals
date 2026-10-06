@@ -1,0 +1,17 @@
+{
+  "owner": "pallets",
+  "repo": "click",
+  "number": 3152,
+  "title": "Fix handling of options which set both is_flag=False and flag_value=...",
+  "body": "Given that it's >1 month and the original contributor hasn't made changes, I've squashed #3104 and attempted to bring it up to spec so that the one-line fix itself can merge.\nTo preserve some level of attribution to the original author, I squashed those commits and added myself as a co-author on the resulting commit.\n\nThe separate \"cleanup\" commit aims to fix internal doc, presentation in the changelog, and to tidy up the new test.\nHappy to take further action if it's helpful.\n\n- Fix #3084: Correct flag optional value behavior and add comprehensive tests\n- Cleanup changes to fix flag_value bug\n\n<!--\nBefore opening a PR, open a ticket describing the issue or feature the\nPR will address. An issue is not required for fixing typos in\ndocumentation, or other simple non-code changes.\n\nReplace this comment with a description of the change. Describe how it\naddresses the linked ticket.\n-->\n\n<!--\nLink to relevant issues or previous PRs, one per line. Use \"fixes\" to\nautomatically close an issue.\n\nfixes #<issue number>\n-->\n\n<!--\nEnsure each step in CONTRIBUTING.rst is complete, especially the following:\n\n- Add tests that demonstrate the correct behavior of the change. Tests\n  should fail without the change.\n- Add or update relevant docs, in the docs folder and in code.\n- Add an entry in CHANGES.rst summarizing the change and linking to the issue.\n- Add `.. versionchanged::` entries in any relevant code docs.\n-->\n",
+  "author": "sirosen",
+  "url": "https://github.com/pallets/click/pull/3152",
+  "additions": 55,
+  "deletions": 3,
+  "changed_files": 3,
+  "merged_at": "2025-11-20T03:49:38Z",
+  "base_sha": "7f7bbe4569ea68e8dabee232eade069ef3310aea",
+  "head_sha": "955ca492a6b9e8de0660dae1c415568ca6f9c4b3",
+  "merge_commit_sha": "ebcd548d50662bc8fa4f8b9ec7fe13cb8310bfaa",
+  "slug": "pallets-click-3152"
+}

@@ -1,0 +1,17 @@
+{
+  "owner": "pallets",
+  "repo": "click",
+  "number": 3493,
+  "title": "Handle empty bytes in echo",
+  "body": "Previously, an empty byte string could cause an exception if `nl=True`.\r\n\r\nThis PR narrows the type scope of `out`, to `bytes() | bytearray() | str` and handles all cases exhaustively.\r\n\r\nWe also change from `typing.Any`, which effectively disables typing for a variable, to `object`, which is more restrictive. See  https://mypy.readthedocs.io/en/latest/dynamic_typing.html#any-vs-object for more.\r\n\r\nfixes #3487\r\n\r\n<!--\r\nEnsure each step in CONTRIBUTING.rst is complete, especially the following:\r\n\r\n- Add tests that demonstrate the correct behavior of the change. Tests\r\n  should fail without the change.\r\n- Add or update relevant docs, in the docs folder and in code.\r\n- Add an entry in CHANGES.rst summarizing the change and linking to the issue.\r\n- Add `.. versionchanged::` entries in any relevant code docs.\r\n-->\r\n",
+  "author": "Iain-S",
+  "url": "https://github.com/pallets/click/pull/3493",
+  "additions": 15,
+  "deletions": 8,
+  "changed_files": 3,
+  "merged_at": "2026-05-21T22:46:00Z",
+  "base_sha": "d42f15b71757de791a5781fb179fd972da9169f5",
+  "head_sha": "4d3db84b251518e97299a38a5ca4bab3d01873a2",
+  "merge_commit_sha": "a5f5aa6d4012d256ccca24638f2642fc371e9f77",
+  "slug": "pallets-click-3493"
+}

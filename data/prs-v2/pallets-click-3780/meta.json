@@ -1,0 +1,17 @@
+{
+  "owner": "pallets",
+  "repo": "click",
+  "number": 3780,
+  "title": "Add FAQ entry about `edit()` returning immediately",
+  "body": "This explain why some editors are returning immediately and does not respect the contract of the `edit()` utility.\r\n\r\nAlso added a warning admonition to the `edit()` docstring itself so developers relying on it get informed about the limitations.\r\n\r\nCloses #2582.",
+  "author": "kdeldycke",
+  "url": "https://github.com/pallets/click/pull/3780",
+  "additions": 32,
+  "deletions": 0,
+  "changed_files": 2,
+  "merged_at": "2026-08-29T04:45:56Z",
+  "base_sha": "420c8fb44eeadb537cae69d2fee3796e808558dd",
+  "head_sha": "ce57b87ac490ac8744491658d092bd86f571bf58",
+  "merge_commit_sha": "3cbcf9b11546f4cf10b36d3e2e531733ba6fe001",
+  "slug": "pallets-click-3780"
+}

@@ -1,0 +1,17 @@
+{
+  "owner": "pallets",
+  "repo": "click",
+  "number": 2829,
+  "title": "Only try to set flag_value if is_flag is true",
+  "body": "This statement:\r\n\r\n    flag_value = not self.default\r\n\r\nrequires the class to have a working `__bool__` method. However, there are some classes that explicitly disable this method:\r\n\r\n- [`numpy.ndarray`](https://numpy.org/doc/stable/reference/arrays.ndarray.html) raises `ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()`\r\n- [`astropy.units.Quantity`](https://docs.astropy.org/en/stable/api/astropy.units.Quantity.html) raises `ValueError: Quantity truthiness is ambiguous, especially for logarithmic units and temperatures. Use explicit  comparisons.`\r\n\r\nMove this statement so that it is only executed if `is_flag` is true.\r\n\r\n<!--\r\nBefore opening a PR, open a ticket describing the issue or feature the\r\nPR will address. An issue is not required for fixing typos in\r\ndocumentation, or other simple non-code changes.\r\n\r\nReplace this comment with a description of the change. Describe how it\r\naddresses the linked ticket.\r\n-->\r\n\r\n<!--\r\nLink to relevant issues or previous PRs, one per line. Use \"fixes\" to\r\nautomatically close an issue.\r\n\r\nfixes #<issue number>\r\n-->\r\n\r\n<!--\r\nEnsure each step in CONTRIBUTING.rst is complete, especially the following:\r\n\r\n- Add tests that demonstrate the correct behavior of the change. Tests\r\n  should fail without the change.\r\n- Add or update relevant docs, in the docs folder and in code.\r\n- Add an entry in CHANGES.rst summarizing the change and linking to the issue.\r\n- Add `.. versionchanged::` entries in any relevant code docs.\r\n-->\r\n",
+  "author": "lpsinger",
+  "url": "https://github.com/pallets/click/pull/2829",
+  "additions": 6,
+  "deletions": 4,
+  "changed_files": 3,
+  "merged_at": "2024-12-22T20:25:57Z",
+  "base_sha": "88328fc8743d43566081d9f17acad5f5552f5a87",
+  "head_sha": "b4da7684a129d2bb4004b26189419b477ca2bba0",
+  "merge_commit_sha": "b5464b7e065bdfd952b1532880941f1be07e4e2b",
+  "slug": "pallets-click-2829"
+}

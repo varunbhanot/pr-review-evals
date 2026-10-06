@@ -1,0 +1,17 @@
+{
+  "owner": "pallets",
+  "repo": "click",
+  "number": 3004,
+  "title": "Fix rendering of Enum choices' default",
+  "body": "This PR fix (and test) the rendering of a variety of `Enum`-based choices. Specifically their default value in the help/usgae screen.\r\n\r\nAdditionally, it adds a couple of unit tests to lock-in and document the current behavior of choices.\r\n\r\nRefs:\r\n - #2911\r\n- #2928",
+  "author": "kdeldycke",
+  "url": "https://github.com/pallets/click/pull/3004",
+  "additions": 92,
+  "deletions": 1,
+  "changed_files": 3,
+  "merged_at": "2025-07-22T07:30:29Z",
+  "base_sha": "a1235aacb1be55dc66ddcfefbf64dec44b6ab54d",
+  "head_sha": "fe3677f85644434d67506ac92a3df6d08a96c764",
+  "merge_commit_sha": "eaf33a957975e7d0943fad8d2b4b905b6bd98cb9",
+  "slug": "pallets-click-3004"
+}

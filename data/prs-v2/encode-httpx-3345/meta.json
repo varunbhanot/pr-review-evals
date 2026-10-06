@@ -1,0 +1,17 @@
+{
+  "owner": "encode",
+  "repo": "httpx",
+  "number": 3345,
+  "title": "Cleanup `response.elapsed` implementation.",
+  "body": "More internal refactorings, keeping that codebase clean & sharp.",
+  "author": "lovelydinosaur",
+  "url": "https://github.com/encode/httpx/pull/3345",
+  "additions": 13,
+  "deletions": 32,
+  "changed_files": 2,
+  "merged_at": "2024-10-17T14:29:26Z",
+  "base_sha": "1aa0a14ec1fc744f6b362277d600955feee025e1",
+  "head_sha": "27b15155e9a0f0c263fc71d7f8816d0809d91f52",
+  "merge_commit_sha": "cf042b62eeb0b1ad474a093101bd04e7d2d977cc",
+  "slug": "encode-httpx-3345"
+}

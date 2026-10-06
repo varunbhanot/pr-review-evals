@@ -1,0 +1,17 @@
+{
+  "owner": "pallets",
+  "repo": "click",
+  "number": 3728,
+  "title": "Sort help args to make them reproducible",
+  "body": "get_help_option_names() uses a set which is not ordered.\nThe return value is used by mkdocs-click making the\nmkdocs-doc package in Debian not reproducible:\n\nhttps://reproduce.debian.net/all/unstable.html#mkdocs-doc",
+  "author": "jspricke",
+  "url": "https://github.com/pallets/click/pull/3728",
+  "additions": 63,
+  "deletions": 4,
+  "changed_files": 3,
+  "merged_at": "2026-08-09T17:51:57Z",
+  "base_sha": "00e592cea702e0b2caa0dee42489fdb1c22cd845",
+  "head_sha": "047adef258fc25566163ffc3efd14effc0ef7352",
+  "merge_commit_sha": "9c4dfdaebe0e6b2aabc566eb81f6f10eb5cd6ea1",
+  "slug": "pallets-click-3728"
+}

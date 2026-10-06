@@ -1,0 +1,17 @@
+{
+  "owner": "encode",
+  "repo": "httpx",
+  "number": 3571,
+  "title": "Display proxy protocol scheme on error",
+  "body": "<!-- Thanks for contributing to HTTPX! \ud83d\udc9a\r\nGiven this is a project maintained by volunteers, please read this template to not waste your time, or ours! \ud83d\ude01 -->\r\n\r\n# Summary\r\nThis small PR evaluates `proxy.url.scheme` in the error message.\r\n\r\n# Checklist\r\n\r\n- [x] I understand that this PR may be closed in case there was no previous discussion. (This doesn't apply to typos!)\r\n- [ ] I've added a test for each change that was introduced, and I tried as much as possible to make a single atomic change.\r\n- [ ] I've updated the documentation accordingly.\r\n",
+  "author": "emmanuel-ferdman",
+  "url": "https://github.com/encode/httpx/pull/3571",
+  "additions": 1,
+  "deletions": 1,
+  "changed_files": 1,
+  "merged_at": "2025-06-02T19:29:52Z",
+  "base_sha": "6c7af967734bafd011164f2a1653abc87905a62b",
+  "head_sha": "f7a257fa28e12a3611725b9d0f7f4766a30ad1e6",
+  "merge_commit_sha": "336204f0121a9aefdebac5cacd81f912bafe8057",
+  "slug": "encode-httpx-3571"
+}

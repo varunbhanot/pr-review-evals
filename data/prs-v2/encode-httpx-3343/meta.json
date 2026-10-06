@@ -1,0 +1,17 @@
+{
+  "owner": "encode",
+  "repo": "httpx",
+  "number": 3343,
+  "title": "Drop `_compat.py` module.",
+  "body": "At this point the `_compat.py` module is now only used in one location.\r\nThis refactoring removes the module, and pushes the functionality closer to where it is used.",
+  "author": "lovelydinosaur",
+  "url": "https://github.com/encode/httpx/pull/3343",
+  "additions": 26,
+  "deletions": 46,
+  "changed_files": 3,
+  "merged_at": "2024-10-12T17:11:58Z",
+  "base_sha": "1aa0a14ec1fc744f6b362277d600955feee025e1",
+  "head_sha": "e286481b9026a404397b5947cb47e80f8d547af7",
+  "merge_commit_sha": "69b0f557c71c59f209fbceb50a8b494608ffc881",
+  "slug": "encode-httpx-3343"
+}

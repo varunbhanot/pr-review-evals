@@ -1,0 +1,17 @@
+{
+  "owner": "encode",
+  "repo": "httpx",
+  "number": 3651,
+  "title": "Upgrade Python formatter ruff",
+  "body": "<!-- Thanks for contributing to HTTPX! \ud83d\udc9a\r\nGiven this is a project maintained by volunteers, please read this template to not waste your time, or ours! \ud83d\ude01 -->\r\n\r\n# Summary\r\n\r\n<!-- Write a small summary about what is happening here. -->\r\n\r\nUnblocks #3648 which is currently failing on the command [`ruff format`](https://docs.astral.sh/ruff/formatter).\r\n* #3648 \r\n* https://github.com/astral-sh/ruff/releases\r\n\r\n# Checklist\r\n\r\n- [x] I understand that this PR may be closed in case there was no previous discussion. (This doesn't apply to typos!)\r\n- [ ] I've added a test for each change that was introduced, and I tried as much as possible to make a single atomic change.\r\n- [ ] I've updated the documentation accordingly.\r\n",
+  "author": "cclauss",
+  "url": "https://github.com/encode/httpx/pull/3651",
+  "additions": 9,
+  "deletions": 11,
+  "changed_files": 4,
+  "merged_at": "2025-09-03T11:17:26Z",
+  "base_sha": "89102021fcb44f6c3fab6304e5f951692723c908",
+  "head_sha": "927b5ac58942eb0f6dfdc3e0b90cac0d3bc9ae8e",
+  "merge_commit_sha": "364697efcafe39290358745da8be451a40a3eab2",
+  "slug": "encode-httpx-3651"
+}

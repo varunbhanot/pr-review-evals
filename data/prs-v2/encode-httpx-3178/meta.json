@@ -1,0 +1,17 @@
+{
+  "owner": "encode",
+  "repo": "httpx",
+  "number": 3178,
+  "title": "add socks5h proxy support",
+  "body": "In some case socks5h is needed to resolve the hostname.\r\n\r\n<!-- Thanks for contributing to HTTPX! \ud83d\udc9a\r\nGiven this is a project maintained by volunteers, please read this template to not waste your time, or ours! \ud83d\ude01 -->\r\n\r\n# Summary\r\n\r\nadd socks5h proxy support.\r\n<!-- Write a small summary about what is happening here. -->\r\n\r\n# Checklist\r\n\r\n- [x] I understand that this PR may be closed in case there was no previous discussion. (This doesn't apply to typos!)\r\n- [x] I've added a test for each change that was introduced, and I tried as much as possible to make a single atomic change.\r\n- [x] I've updated the documentation accordingly.\r\n",
+  "author": "liubin",
+  "url": "https://github.com/encode/httpx/pull/3178",
+  "additions": 15,
+  "deletions": 13,
+  "changed_files": 4,
+  "merged_at": "2024-10-29T14:10:33Z",
+  "base_sha": "e9cabc8e1deb6548c5c5e2f453e343d39a2a5321",
+  "head_sha": "8b07286d060bf9c2980fc5003e0778bed82a4f4a",
+  "merge_commit_sha": "12be5c44caa7a34bfe19f82eace5150ddeba2612",
+  "slug": "encode-httpx-3178"
+}

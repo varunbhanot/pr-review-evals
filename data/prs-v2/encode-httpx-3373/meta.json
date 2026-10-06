@@ -1,0 +1,17 @@
+{
+  "owner": "encode",
+  "repo": "httpx",
+  "number": 3373,
+  "title": "Review urlescape percent-safe set, and use + behavior for form spaces.",
+  "body": "Prompted by #3369\r\n\r\n* Review the percent-safe set that we should use for urlescaping form values.\r\n* Use the stdlib `urlescape`, including form query parameters using `+` for spaces.",
+  "author": "lovelydinosaur",
+  "url": "https://github.com/encode/httpx/pull/3373",
+  "additions": 28,
+  "deletions": 47,
+  "changed_files": 3,
+  "merged_at": "2024-10-28T16:19:59Z",
+  "base_sha": "d293374b6603816420a2bb8e7f4fe5a5f09cbfcc",
+  "head_sha": "2221e5ab2628b04ce8dbec0aeaff859e18c59ea8",
+  "merge_commit_sha": "ba2e51215e4e619540f2a24282b84ed8a738e6fd",
+  "slug": "encode-httpx-3373"
+}

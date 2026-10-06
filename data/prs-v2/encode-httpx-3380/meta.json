@@ -1,0 +1,17 @@
+{
+  "owner": "encode",
+  "repo": "httpx",
+  "number": 3380,
+  "title": "Fix `extensions` type annotation.",
+  "body": "These should be annotated as `Mapping[str, Any]`, not mutable mappings.\r\nThe `.extensions` property is a dict, tho that's our responsibility to deal with.\r\n\r\nSwitching the typing in this direction is a non-breaking change.",
+  "author": "lovelydinosaur",
+  "url": "https://github.com/encode/httpx/pull/3380",
+  "additions": 4,
+  "deletions": 5,
+  "changed_files": 2,
+  "merged_at": "2024-11-28T13:31:17Z",
+  "base_sha": "ce7e14da27abba6574be9b3ea7cd5990556a9343",
+  "head_sha": "fdd2e91ef3b4d88786526a06f5ff1d42ed963300",
+  "merge_commit_sha": "a33c87852b8a0dddc65e5f739af1e0a6fca4b91f",
+  "slug": "encode-httpx-3380"
+}

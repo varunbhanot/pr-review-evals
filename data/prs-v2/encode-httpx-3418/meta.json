@@ -1,0 +1,17 @@
+{
+  "owner": "encode",
+  "repo": "httpx",
+  "number": 3418,
+  "title": "Error on verify as str.",
+  "body": "For users working with `verify=\"/path/to/certs\"` point them explicitly towards the more explicit usage style.",
+  "author": "lovelydinosaur",
+  "url": "https://github.com/encode/httpx/pull/3418",
+  "additions": 8,
+  "deletions": 0,
+  "changed_files": 1,
+  "merged_at": "2024-11-28T11:47:00Z",
+  "base_sha": "47f4a96ffaaaa07dca1614409549b5d7a6e7af49",
+  "head_sha": "8a40ebc44fa32b90edfb45ba3ba57d85ddfc7756",
+  "merge_commit_sha": "ce7e14da27abba6574be9b3ea7cd5990556a9343",
+  "slug": "encode-httpx-3418"
+}

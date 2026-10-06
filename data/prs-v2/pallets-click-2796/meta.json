@@ -1,0 +1,17 @@
+{
+  "owner": "pallets",
+  "repo": "click",
+  "number": 2796,
+  "title": "Expand `Choice` token normalization + make generic",
+  "body": "When looking into #2210, I wasn't sure it was a good idea to show an enum's name to the user. For example:\r\n\r\n```python\r\nclass MyEnum(enum.Enum):\r\n\tONE = 1\r\n\tTWO = 2\r\n\tTHREE = 3\r\n\tALSO_ONE = 1\r\n```\r\n\r\nWould result the following if an invalid value is shown:\r\n\r\n```\r\nError: Invalid value for '{ONE|TWO|THREE|ALSO_ONE}': 'meh' is not one of ONE, TWO, THREE.\r\n```\r\n\r\nThough it's not uncommon practice to have kebab-case, imo it's the most convenient typing for the CLI. Then you'd ideally want the user to type `also-one` instead of `ALSO_ONE` or `also_one`.\r\n\r\nI realised that we have [token normalization since 2.0](https://click.palletsprojects.com/en/stable/advanced/#token-normalization). I feel like this is not very obvious to users as we don't make the normalization transparent to the user.\r\n\r\n```python\r\n@click.option(\r\n\t\"--method\",\r\n\ttype=click.Choice(\r\n\t\t[\"SCREAMING_SNAKE_CASE\", \"snake_case\", \"PascalCase\", \"kebab-case\"]\r\n\t)\r\n)\r\n```\r\n\r\nWould in the background casefold the values to `screaming-snake-case`, `snake-case`, `pascalcase`, and `kebab-case`. Though still show the following message:\r\n\r\n```\r\nError: Invalid value for '{SCREAMING_SNAKE_CASE,snake_case,pascalcase,kebab-case}':\r\n'meh' is not one of SCREAMING_SNAKE_CASE, snake_case, pascalcase, kebab-case.\r\n```\r\n\r\nThis makes token normalization expand to cover normalization output to the user so it would now be:\r\n```\r\nError: Invalid value for '{screaming_snake_case,snake_case,pascalcase,kebab-case}':\r\n'meh' is not one of screaming_snake_case, snake_case, pascalcase, kebab-case.\r\n```\r\n\r\nNote that `screaming_snake_case` and `snake_case` retain their underscores because we're casefolding, not converting to kebab-case. I think we should in the future make kebab-case the default, and/or allow extending the normalization behaviour more easily so this could be converted into `snake-case`.\r\n\r\n---\r\n\r\nIn addition to this normalization, I'm introducing generics into `Choice` and removing the requirement to have choices be `str`. A funny side-effect is that enums can be supported more easily. Right now you'd have to use `click.Choice(list(MyEnum))` though that would result in enum aliases not showing up. We could allow one to do `click.Choice(MyEnum)` and handle the aliasing for them. \ud83e\udd14 We could prevent people from incorrectly using `click.Choice(list(MyEnum))` by failing if we detect a list of `Enum` types.\r\n\r\nLet me know what you think!\r\n\r\nResolves #605.",
+  "author": "AndreasBackx",
+  "url": "https://github.com/pallets/click/pull/2796",
+  "additions": 239,
+  "deletions": 71,
+  "changed_files": 10,
+  "merged_at": "2025-01-12T14:59:58Z",
+  "base_sha": "8a47580a00f3404e7071b9ecfec3692a1e18309f",
+  "head_sha": "6748e72ea5ee533c57c8bde9e4caf115a706e3f2",
+  "merge_commit_sha": "4ece17a107d7b2e8bc3bd14356c2b53038fe41cf",
+  "slug": "pallets-click-2796"
+}

@@ -1,0 +1,17 @@
+{
+  "owner": "pallets",
+  "repo": "click",
+  "number": 3776,
+  "title": "Resolve the pager command once, in `_pager_contextmanager`",
+  "body": "Following the refactor of #3767, I just noticed an opportunity to deduplicate the `shutil.which` call that appears both in `_pipepager()` and `_tempfilepager()`. These methods are were already a source of a lot of tweaking these past few years so this should make them more readable.\r\n\r\nAlso used the opportunity to remove unnecessary `if color is None: color = False` lines which made superfluous normalization inside each strategy. The color interpretation is already handled by the new `_PagerWriter`.",
+  "author": "kdeldycke",
+  "url": "https://github.com/pallets/click/pull/3776",
+  "additions": 64,
+  "deletions": 87,
+  "changed_files": 1,
+  "merged_at": "2026-08-18T16:24:13Z",
+  "base_sha": "f36d58bbd7f188178de2d4fe1d0292c510375ca7",
+  "head_sha": "9835b0f7612d1b1ea180a975fd6d24cf16791ba8",
+  "merge_commit_sha": "61b69e967e525bd502f5bf42def4d551e761fe0e",
+  "slug": "pallets-click-3776"
+}

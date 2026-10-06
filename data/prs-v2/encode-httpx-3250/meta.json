@@ -1,0 +1,17 @@
+{
+  "owner": "encode",
+  "repo": "httpx",
+  "number": 3250,
+  "title": "Improve InvalidURL error message.",
+  "body": "Prompted by https://github.com/encode/httpx/discussions/3248.\r\n\r\n*before*...\r\n\r\n```python\r\n>>> import httpx\r\n>>> httpx.get(\"https://www.example.com\\n\")\r\nTraceback (most recent call last):\r\n  ...\r\n  File \"/Users/tomchristie/GitHub/encode/httpx/httpx/_urlparse.py\", line 163, in urlparse\r\n    raise InvalidURL(error)\r\nhttpx.InvalidURL: Invalid non-printable ASCII character in URL.\r\n```\r\n\r\n*after*...\r\n\r\n```python\r\n>>> import httpx\r\n>>> httpx.get(\"https://www.example.com\\n\")\r\nTraceback (most recent call last):\r\n  ...\r\n  File \"/Users/tomchristie/GitHub/encode/httpx/httpx/_urlparse.py\", line 168, in urlparse\r\n    raise InvalidURL(error)\r\nhttpx.InvalidURL: Invalid non-printable ASCII character in URL, '\\n' at position 23.\r\n```\r\n",
+  "author": "lovelydinosaur",
+  "url": "https://github.com/encode/httpx/pull/3250",
+  "additions": 21,
+  "deletions": 7,
+  "changed_files": 3,
+  "merged_at": "2024-07-26T08:36:03Z",
+  "base_sha": "beb501fc28cb24ef7cd584159bc6ac55d2244dea",
+  "head_sha": "c6f51c73a67acc5ca664bb19285948921239f242",
+  "merge_commit_sha": "7c0cda153d301bde9a011e1dd7157d7e2b20889d",
+  "slug": "encode-httpx-3250"
+}

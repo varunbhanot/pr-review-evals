@@ -1,0 +1,17 @@
+{
+  "owner": "pallets",
+  "repo": "click",
+  "number": 3805,
+  "title": "Fix `copy`, `deepcopy` and `pickle` of `Sentinel` members",
+  "body": "Just a small issue I encountered on Python 3.10, where `Enum` has no `__deepcopy__`. Now that every parameter have a sentinel, `copy.deepcopy()` of any `Option`, `Argument` or `Command` fails on Python 3.10. And `pickle` fails on every Python version. This PR fix this issue.",
+  "author": "kdeldycke",
+  "url": "https://github.com/pallets/click/pull/3805",
+  "additions": 60,
+  "deletions": 0,
+  "changed_files": 3,
+  "merged_at": "2026-08-29T15:12:36Z",
+  "base_sha": "3cbcf9b11546f4cf10b36d3e2e531733ba6fe001",
+  "head_sha": "f58ca3e81424a35626c8a475eb59ab95589008ce",
+  "merge_commit_sha": "4295457ddc7b5ca9a733d59ca40d9651b02b9b1d",
+  "slug": "pallets-click-3805"
+}

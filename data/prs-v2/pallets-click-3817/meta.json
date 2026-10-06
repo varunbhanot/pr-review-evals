@@ -1,0 +1,17 @@
+{
+  "owner": "pallets",
+  "repo": "click",
+  "number": 3817,
+  "title": "Remove unused bindings and constants from `_winconsole`",
+  "body": "These constants are not used anywhere, so I would classify them as left-over from the previous Python 2 cleanup that was performed by @Rowlando13 in https://github.com/pallets/click/pull/3695 or @davidism in 00883dd3d0a29f68f375cab5e21cef0669941aba.\r\n\r\nThese were introduced 11 years ago in Click 6.x (see https://github.com/pallets/click/commit/bcf8feceb41b3f75f3cd07eb851734fa96cd1991) for Python 2 compatibility and not touched since then.\r\n\r\nAnd because this module is private, I choose not to add a changelog. Just tell me if you think it needs one and I will update this PR.",
+  "author": "kdeldycke",
+  "url": "https://github.com/pallets/click/pull/3817",
+  "additions": 0,
+  "deletions": 5,
+  "changed_files": 1,
+  "merged_at": "2026-08-31T13:24:59Z",
+  "base_sha": "08a7bc6d2a2af02268b09b3b5fd8079546c81c03",
+  "head_sha": "94f17e276fbdd7348b88b05170923ecacb7b32bf",
+  "merge_commit_sha": "cbb5b2df1ee3492115f8c2ee5cbb09e2271fc714",
+  "slug": "pallets-click-3817"
+}

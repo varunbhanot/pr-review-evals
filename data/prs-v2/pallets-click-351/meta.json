@@ -1,0 +1,17 @@
+{
+  "owner": "pallets",
+  "repo": "click",
+  "number": 351,
+  "title": "Ignore KeyboardInterrupt while writing to pager.",
+  "body": "This addresses a corner case in #350. \n\n@untitaker Your solution to ignore the KeyboardInterrupt in `echo_via_pager()` is absolutely right and it works great. But for cases where the amount of text that is being written into the pager is larger than the OS buffer it blocks on writing to the buffer. https://github.com/mitsuhiko/click/blob/4.x-maintenance/click/_termui_impl.py#L309\n\nSo it is necessary to ignore the ^C while that is happening as well. \n\nTest program:\n\n```\nimport click\n\n@click.command()\n@click.option('--foo', prompt=True)\ndef cli(foo):\n    s = open('large_file.txt')\n    while True:\n        a = click.prompt('>')\n        if a == 'exit':\n            break\n        click.echo_via_pager(s.read())\n```\n\nRun the above program with a `large_file.txt` in the working folder. Make sure it has at least 5000 lines in there and press ^C right after the first page. You will trigger the old behavior where the KeyboardInterrupt is bubbled up to the click app and results in 'Aborted!'. With this PR that corner case if fixed. \n",
+  "author": "amjith",
+  "url": "https://github.com/pallets/click/pull/351",
+  "additions": 1,
+  "deletions": 1,
+  "changed_files": 1,
+  "merged_at": "2015-06-03T18:10:56Z",
+  "base_sha": "09911edbed66b71aa561f1ea522ce74b2cf62f70",
+  "head_sha": "6308703c56d4e70883123c5c21a5ee54e412efe9",
+  "merge_commit_sha": null,
+  "slug": "pallets-click-351"
+}

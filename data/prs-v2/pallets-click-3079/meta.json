@@ -1,0 +1,17 @@
+{
+  "owner": "pallets",
+  "repo": "click",
+  "number": 3079,
+  "title": "Fix default handling to defer `UNSET` normalization",
+  "body": "When options are being parsed, multiple options may evaluate to have defaults of `UNSET`, and some may evaluate to have explicitly set defaults of `None`. The normalization of `UNSET -> None` is now deferred until all options have been parsed, so that it is possible to accurately evaluate and save the first non-UNSET default value.\r\n\r\nA new test exercises this functionality by pointing two flags at the same parameter declaration, and showing that their behavior is not order sensitive when only one of the flags has a default.\r\n\r\nresolves #3071\r\n\r\n---\r\n\r\nThe PR template says to add a note in `CHANGES.rst` for the change, but there's no header for the next release, so I wasn't sure where to put a change note. If a maintainer gives me a pointer in terms of what to do, I'm happy to amend with a change note. :slightly_smiling_face: ",
+  "author": "sirosen",
+  "url": "https://github.com/pallets/click/pull/3079",
+  "additions": 43,
+  "deletions": 5,
+  "changed_files": 3,
+  "merged_at": "2025-09-24T17:07:42Z",
+  "base_sha": "6a1c0d077311f180b356965914e2de5b9e0fdb44",
+  "head_sha": "189068aa606b3b1042b312b7e964a1fbf915727e",
+  "merge_commit_sha": "27aaed3fe5bcd6adedd6e91de234914af9859cf1",
+  "slug": "pallets-click-3079"
+}

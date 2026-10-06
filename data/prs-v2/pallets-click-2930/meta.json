@@ -1,0 +1,17 @@
+{
+  "owner": "pallets",
+  "repo": "click",
+  "number": 2930,
+  "title": "Fix flag value set when is_flag=True and type is provided",
+  "body": "When setting the value of a flag, check only if `is_flag` is `True` and `flag_value` is not provided when negating the default flag value.\r\n\r\n#2829 introduced a bug by checking if the type of the flag is `None` before setting the value.\r\nSince we still check if `is_flag` is set, objects without a `__bool__` method will not raise an error if `is_flag` is not set.\r\n\r\nfixes #2894\r\nfixes #2897\r\n\r\n<!--\r\nEnsure each step in CONTRIBUTING.rst is complete, especially the following:\r\n\r\n- Add tests that demonstrate the correct behavior of the change. Tests\r\n  should fail without the change.\r\n- Add or update relevant docs, in the docs folder and in code.\r\n- Add an entry in CHANGES.rst summarizing the change and linking to the issue.\r\n- Add `.. versionchanged::` entries in any relevant code docs.\r\n-->\r\n",
+  "author": "kieranyyu",
+  "url": "https://github.com/pallets/click/pull/2930",
+  "additions": 44,
+  "deletions": 2,
+  "changed_files": 3,
+  "merged_at": "2025-05-20T14:55:39Z",
+  "base_sha": "011b9f9d190c71310264e6c54bae6259f5e38a9f",
+  "head_sha": "4fd2fea0db423d242aedcae0a5f664efe0a93484",
+  "merge_commit_sha": "884af5c20fdc95c9c7352df35c37273391464fb9",
+  "slug": "pallets-click-2930"
+}

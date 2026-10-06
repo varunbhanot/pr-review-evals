@@ -1,0 +1,17 @@
+{
+  "owner": "pallets",
+  "repo": "click",
+  "number": 2800,
+  "title": "Close contexts created during shell completion #2644.",
+  "body": "Includes a test reproducing #2644. Then continues from the work done by @akhil-vempali in #2767 to fix the issue. There was some confusion in the mess of context objects in the implementation that has been fixed in this version.\r\n\r\nResolves #2644.",
+  "author": "AndreasBackx",
+  "url": "https://github.com/pallets/click/pull/2800",
+  "additions": 66,
+  "deletions": 33,
+  "changed_files": 4,
+  "merged_at": "2024-11-03T20:38:31Z",
+  "base_sha": "d8763b93021c416549b5f8b4b5497234619410db",
+  "head_sha": "e7f30b248526c361da64a11660fc67c5e5f2822c",
+  "merge_commit_sha": "0ef55fda47bb3d0dece21197d81d8d72a4250e73",
+  "slug": "pallets-click-2800"
+}

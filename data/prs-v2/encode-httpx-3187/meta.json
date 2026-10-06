@@ -1,0 +1,17 @@
+{
+  "owner": "encode",
+  "repo": "httpx",
+  "number": 3187,
+  "title": "Resolve queryparam quoting",
+  "body": "* Percent-encoding in `params={}` should match browser form behavior. (Always percent-encode.)\r\n* Percent-encoding in `url={}` should match browser URL bar behavior. (Percent-encode, preserving existing escape sequences.)\r\n\r\nCloses #3135.\r\nCloses #3140.",
+  "author": "lovelydinosaur",
+  "url": "https://github.com/encode/httpx/pull/3187",
+  "additions": 55,
+  "deletions": 32,
+  "changed_files": 2,
+  "merged_at": "2024-05-03T00:09:08Z",
+  "base_sha": "be56b747350008b7b0456242691919f9086c0f32",
+  "head_sha": "0dad0d9eba4070acdfd98c4cf2799be9da299e01",
+  "merge_commit_sha": "a7092af2fda78d92daaad7627e4cf0cf5e94b019",
+  "slug": "encode-httpx-3187"
+}

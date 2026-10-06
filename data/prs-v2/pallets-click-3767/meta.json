@@ -1,0 +1,17 @@
+{
+  "owner": "pallets",
+  "repo": "click",
+  "number": 3767,
+  "title": "Refactor pager stream handling",
+  "body": "This streamline the pager handling and removes the distinction between text and binary streams.\r\n\r\nIt is a follow up on:\r\n- #1572 \r\n- #3405",
+  "author": "kdeldycke",
+  "url": "https://github.com/pallets/click/pull/3767",
+  "additions": 113,
+  "deletions": 80,
+  "changed_files": 5,
+  "merged_at": "2026-08-18T05:38:45Z",
+  "base_sha": "cbd7a4109da16ce58f54c2a618b4c986e3041fcf",
+  "head_sha": "bc32a92cd2ae77afb2352f79ebdf00997f35d333",
+  "merge_commit_sha": "f36d58bbd7f188178de2d4fe1d0292c510375ca7",
+  "slug": "pallets-click-3767"
+}

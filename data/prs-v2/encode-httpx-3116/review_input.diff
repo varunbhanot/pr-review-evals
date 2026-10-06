@@ -1,0 +1,55 @@
+diff --git a/httpx/_client.py b/httpx/_client.py
+--- a/httpx/_client.py
++++ b/httpx/_client.py
+@@ -562,6 +562,15 @@ def _redirect_stream(
+ 
+         return request.stream
+ 
++    def _set_timeout(self, request: Request) -> None:
++        if "timeout" in request.extensions:
++            timeout = (
++                self.timeout
++                if isinstance(self.timeout, UseClientDefault)
++                else Timeout(self.timeout)
++            )
++            request.extensions = dict(**request.extensions, timeout=timeout.as_dict())
++
+ 
+ class Client(BaseClient):
+     """
+@@ -911,6 +920,8 @@ def send(
+             else follow_redirects
+         )
+ 
++        self._set_timeout(request)
++
+         auth = self._build_request_auth(request, auth)
+ 
+         response = self._send_handling_auth(
+@@ -1658,6 +1669,8 @@ async def send(
+             else follow_redirects
+         )
+ 
++        self._set_timeout(request)
++
+         auth = self._build_request_auth(request, auth)
+ 
+         response = await self._send_handling_auth(
+diff --git a/tests/test_timeouts.py b/tests/test_timeouts.py
+--- a/tests/test_timeouts.py
++++ b/tests/test_timeouts.py
+@@ -42,3 +42,14 @@ async def test_pool_timeout(server):
+         with pytest.raises(httpx.PoolTimeout):
+             async with client.stream("GET", server.url):
+                 await client.get(server.url)
++
++
++@pytest.mark.anyio
++async def test_async_client_new_request_send_timeout(server):
++    timeout = httpx.Timeout(1e-6)
++
++    async with httpx.AsyncClient(timeout=timeout) as client:
++        with pytest.raises(httpx.TimeoutException):
++            await client.send(
++                httpx.Request("GET", server.url.copy_with(path="/slow_response"))
++            )

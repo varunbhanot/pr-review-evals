@@ -1,0 +1,17 @@
+{
+  "owner": "encode",
+  "repo": "httpx",
+  "number": 3116,
+  "title": "Fix client.send() timeout when used with a new Request instance",
+  "body": "# Summary\r\n\r\nDiscussion here https://github.com/encode/httpx/discussions/3110\r\n\r\nOn `httpx.client.send()`, now the timeout of the request is set if not set already.\r\nThis is for cases in which `httpx.client.send()` is used with `httpx.Request()` instead of `client.build_request()`\r\n\r\nI expected timeout tests for the non-async client too. But since there are only async tests I didn't create a non-async test.\r\n\r\nI didn't think a documentation change was needed since this is (for me) the expect behavior.\r\n\r\n# Checklist\r\n\r\n- [X] I understand that this PR may be closed in case there was no previous discussion. (This doesn't apply to typos!)\r\n- [X] I've added a test for each change that was introduced, and I tried as much as possible to make a single atomic change.\r\n- [ ] I've updated the documentation accordingly.\r\n",
+  "author": "alexgmin",
+  "url": "https://github.com/encode/httpx/pull/3116",
+  "additions": 24,
+  "deletions": 0,
+  "changed_files": 2,
+  "merged_at": "2024-02-26T16:36:58Z",
+  "base_sha": "df5345140e09ac6c2de0d9589bcd6f3e31c6aa3f",
+  "head_sha": "4143ba206c526fea05c2eb53e60720874d541c44",
+  "merge_commit_sha": "6d852d319acd5d97caf14037dff15ede04b37542",
+  "slug": "encode-httpx-3116"
+}

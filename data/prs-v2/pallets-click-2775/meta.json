@@ -1,0 +1,17 @@
+{
+  "owner": "pallets",
+  "repo": "click",
+  "number": 2775,
+  "title": "Improve echo_via_pager behaviour in face of errors",
+  "body": "fixes #2674 (echo_via_pager with generators leaves terminal in broken state).\r\n\r\n- [x] Add tests that demonstrate the correct behavior of the change. Tests\r\n  should fail without the change.\r\n- [x] Add or update relevant docs, in the docs folder and in code.\r\n- [x] Add an entry in CHANGES.rst summarizing the change and linking to the issue.\r\n- [x] Add `.. versionchanged::` entries in any relevant code docs.\r\n",
+  "author": "stefreak",
+  "url": "https://github.com/pallets/click/pull/2775",
+  "additions": 198,
+  "deletions": 33,
+  "changed_files": 3,
+  "merged_at": "2024-11-09T00:22:59Z",
+  "base_sha": "2cabbe3175026695210fe0bf9b179fd62d52634f",
+  "head_sha": "0bdd673d090e94fa7dfb34eba4ca38d0d2ec3837",
+  "merge_commit_sha": "3b06e0b75aaa68533c7fbd4f89053309f2e4ed8a",
+  "slug": "pallets-click-2775"
+}
