@@ -1,0 +1,14 @@
+{
+  "verdict": "request_changes",
+  "summary": "The None check in load_ssl_context_verify is inverted, so env-provided CA bundles are never used and default usage with trust_env and no env vars sets verify to None and crashes.",
+  "findings": [
+    {
+      "file": "httpx/config.py",
+      "line": 123,
+      "severity": "blocker",
+      "category": "correctness",
+      "explanation": "The condition `if ca_bundle is None` is inverted. When SSL_CERT_FILE/SSL_CERT_DIR are set and valid, ca_bundle is not None so verify is never overridden and the feature does nothing. When no env var is set (the common case with trust_env=True and verify=True), self.verify is assigned None, so the following isinstance(self.verify, bool) fails and Path(None) raises TypeError, breaking all default HTTPS requests. The new test would also fail at its assertion that ssl_config.verify equals the env value.",
+      "suggested_fix": "Change to `if ca_bundle is not None: self.verify = ca_bundle`."
+    }
+  ]
+}

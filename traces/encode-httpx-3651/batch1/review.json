@@ -1,0 +1,1 @@
+{"verdict":"approve","summary":"Pure ruff upgrade and formatter-driven rewrites (string joins, quote swap in f-string, assert layout) that preserve behavior; no defects found.","findings":[]}

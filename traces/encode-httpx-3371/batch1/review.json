@@ -1,0 +1,22 @@
+{
+  "verdict": "request_changes",
+  "summary": "The new WHATWG percent-encode sets look correct, but username/password built from kwargs no longer escape a literal '%', so values like '%41' round-trip to a different credential, and the test was edited to accept this.",
+  "findings": [
+    {
+      "file": "httpx/_urlparse.py",
+      "line": 245,
+      "severity": "major",
+      "category": "correctness",
+      "explanation": "USERNAME_SAFE and PASSWORD_SAFE contain '%' (it is not excluded from the range 0x20-0x7E), so quote() leaves a literal '%' unescaped when username/password are passed via kwargs/copy_with. A password such as '%41' or 'abc%' becomes 'abc%' / '%41' in the userinfo and decodes back to a different value ('A') or an invalid escape. The previous code escaped '%' to '%25'. The updated test (copy_with userinfo subcomponents, expecting '...%20%@example.org' while password is 'abc123@ %') codifies the lossy round trip. This can silently corrupt credentials.",
+      "suggested_fix": "Always percent-encode '%' in the username and password kwargs (add 0x25 to the excluded set for USERNAME_SAFE/PASSWORD_SAFE), and restore the test expectations to '%25'."
+    },
+    {
+      "file": "tests/models/test_url.py",
+      "line": 617,
+      "severity": "minor",
+      "category": "tests",
+      "explanation": "Expected values were weakened to match new behavior (a bare '%' in userinfo) rather than testing the intended escaping. No new tests cover the new path/query/fragment sets, e.g. '`', '{', '}', '|', '^', '<', '>' or '?' in a path.",
+      "suggested_fix": "Add tests for each component's encode set, including pre-existing %XX sequences and a literal '%' in username/password."
+    }
+  ]
+}

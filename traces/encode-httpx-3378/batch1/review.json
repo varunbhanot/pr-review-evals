@@ -1,0 +1,14 @@
+{
+  "verdict": "request_changes",
+  "summary": "Request.__init__ assigns the uppercased method to self.content_type instead of self.method, so self.method is never set and Request breaks.",
+  "findings": [
+    {
+      "file": "httpx/_models.py",
+      "line": 326,
+      "severity": "blocker",
+      "category": "correctness",
+      "explanation": "The method is stored as `self.content_type` rather than `self.method`. `self.method` is never assigned, so later uses (e.g. `self.method in (\"POST\", \"PUT\", \"PATCH\")` at line 385 and `__repr__` at line 427) raise AttributeError, and every Request construction fails. It also clobbers the content_type attribute name.",
+      "suggested_fix": "Use `self.method = method.upper()`."
+    }
+  ]
+}

@@ -1,0 +1,1 @@
+{"verdict":"approve","summary":"Adds the missing f-string prefix so the proxy scheme is interpolated into the ValueError message; correct, minimal, and no new risk.","findings":[]}

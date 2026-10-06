@@ -1,0 +1,1 @@
+{"verdict":"approve","summary":"Removing the early return in the verify=False branch lets the cert chain load afterwards, which fixes verify=False combined with cert=...; the change is correct and minimal.","findings":[]}

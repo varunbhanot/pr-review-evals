@@ -1,0 +1,1 @@
+{"verdict":"approve","summary":"Adds the existing FunctionAuth class to _auth.__all__ and httpx.__all__ so it is importable as httpx.FunctionAuth; consistent, with a changelog entry.","findings":[]}
