@@ -1,0 +1,22 @@
+{
+  "verdict": "request_changes",
+  "summary": "Moves flag_value inference under `is_flag`, but drops the negation, so flags with no explicit flag_value now take the default's own value.",
+  "findings": [
+    {
+      "file": "src/click/core.py",
+      "line": 2603,
+      "severity": "blocker",
+      "category": "correctness",
+      "explanation": "`flag_value = self.default` replaces `not self.default`. For a plain `is_flag=True` option with default False, `--flag` now stores False (flag_value = default) and the inferred type is guessed from the wrong value; default True flags can never be turned off. Flag semantics are inverted for common use.",
+      "suggested_fix": "Use `flag_value = not self.default`."
+    },
+    {
+      "file": "src/click/core.py",
+      "line": 2603,
+      "severity": "minor",
+      "category": "tests",
+      "explanation": "No test covers the behavior of `is_flag=True` flags (only an info-dict value changed), so the inversion goes unnoticed. The `is_flag` + explicit `type` path also leaves `flag_value` None.",
+      "suggested_fix": "Add tests for default True/False flags and for `is_flag=True` with `type=`."
+    }
+  ]
+}

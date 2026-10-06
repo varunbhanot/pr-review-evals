@@ -1,0 +1,5 @@
+{
+  "verdict": "approve",
+  "summary": "Pager command resolution is moved into one place with behavior preserved; None color is normalized once in `get_pager_file`.",
+  "findings": []
+}

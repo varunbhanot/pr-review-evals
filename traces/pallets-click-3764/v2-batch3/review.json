@@ -1,0 +1,5 @@
+{
+  "verdict": "approve",
+  "summary": "Closing the temp file in `finally` before unlink is correct and idempotent; the new test verifies the file is closed at unlink time.",
+  "findings": []
+}

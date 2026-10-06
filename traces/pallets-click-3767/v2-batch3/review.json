@@ -1,0 +1,14 @@
+{
+  "verdict": "comment",
+  "summary": "Reasonable simplification to a single text-stream `_PagerWriter`; one small behavioral change in how the pipe pager picks its encoding.",
+  "findings": [
+    {
+      "file": "src/click/_termui_impl.py",
+      "line": 544,
+      "severity": "minor",
+      "category": "correctness",
+      "explanation": "`Popen(..., text=True, errors='replace')` no longer passes an `encoding`, so the pipe is encoded with the locale's preferred encoding rather than `get_best_encoding(...)` as before. In an ASCII/`C` locale, non-ASCII output is now replaced with `?` instead of being sent as UTF-8, whereas the temp file backend does honor `get_best_encoding`.",
+      "suggested_fix": "Pass `encoding=get_best_encoding(sys.stdout)` to Popen."
+    }
+  ]
+}

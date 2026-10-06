@@ -1,0 +1,14 @@
+{
+  "verdict": "request_changes",
+  "summary": "The condition should require both `is_flag` and a missing flag_value; `or` overwrites explicit flag_values and re-introduces the `__bool__` negation for non-flags.",
+  "findings": [
+    {
+      "file": "src/click/core.py",
+      "line": 2613,
+      "severity": "blocker",
+      "category": "correctness",
+      "explanation": "`if is_flag or flag_value is None:` should be `and`. With `or`, any flag with an explicit `flag_value` has it overwritten by `not self.default`, breaking `flag_value=` options. Non-flag options with no flag_value also evaluate `not self.default` again, so a default without a working `__bool__` raises, which the new `test_non_flag_with_non_negatable_default` test and the PR's intent forbid.",
+      "suggested_fix": "Use `if is_flag and flag_value is None:`."
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "verdict": "approve",
+  "summary": "Flushing pending sub-threshold steps in `render_finish` settles the bar on its final position; the parametrized test covers both iterate and update modes.",
+  "findings": []
+}

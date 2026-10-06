@@ -1,0 +1,22 @@
+{
+  "verdict": "request_changes",
+  "summary": "Wrapping contexts in `with` fixes the leak, but the loop bookkeeping was altered: `args` is no longer advanced from the new sub-context, which breaks resolution for nested and chained groups.",
+  "findings": [
+    {
+      "file": "src/click/shell_completion.py",
+      "line": 563,
+      "severity": "blocker",
+      "category": "correctness",
+      "explanation": "In the non-chain branch, `args = list(args)` replaces `args = ctx._protected_args + ctx.args`. The remaining args are then the raw tokens already consumed by the subcommand parser, not what the sub-context left over. For `cli sub --flag subsub <TAB>` the next `resolve_command` sees `--flag` first and returns None, so completion stops at the wrong context. It can also re-resolve the same tokens.",
+      "suggested_fix": "Inside the `with`, set `ctx = sub_ctx` and `args = ctx._protected_args + ctx.args`."
+    },
+    {
+      "file": "src/click/shell_completion.py",
+      "line": 582,
+      "severity": "major",
+      "category": "correctness",
+      "explanation": "In the chain branch, `args = sub_ctx.args` runs before `sub_ctx = sub_sub_ctx`, so it reads the previous context's args and lags one step behind. Chained commands (`a b c`) are resolved with stale arguments and the loop can spin or mis-resolve.",
+      "suggested_fix": "Assign `sub_ctx = sub_sub_ctx` first, then `args = sub_ctx.args`."
+    }
+  ]
+}

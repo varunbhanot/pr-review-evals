@@ -1,0 +1,30 @@
+{
+  "verdict": "request_changes",
+  "summary": "Makes Choice generic and normalizes output, but silently flips the `case_sensitive` default from True to False, a breaking change that contradicts the docs and the updated info-dict test.",
+  "findings": [
+    {
+      "file": "src/click/types.py",
+      "line": 259,
+      "severity": "blocker",
+      "category": "correctness",
+      "explanation": "`case_sensitive` default changed from `True` to `False` in `Choice.__init__`. The docstring still says 'Defaults to true', `tests/test_info_dict.py` still expects `case_sensitive: True`, and existing users who relied on exact matching (`Foo` vs `foo`) now get case-insensitive matching and casefolded help/error output. That also makes distinct choices collide after casefolding.",
+      "suggested_fix": "Keep `case_sensitive: bool = True`."
+    },
+    {
+      "file": "CHANGES.rst",
+      "line": 91,
+      "severity": "nit",
+      "category": "style",
+      "explanation": "The edit changes working `:class:`CliRunner`` roles to double-backtick `:class:``CliRunner`` `, which breaks the Sphinx roles in unrelated entries. The new Choice entry uses the same broken form.",
+      "suggested_fix": "Use single backticks."
+    },
+    {
+      "file": "src/click/types.py",
+      "line": 296,
+      "severity": "minor",
+      "category": "correctness",
+      "explanation": "Choices are normalized via `str(choice)`/`enum.name`, but duplicates after normalization are only documented ('must be unique'), not detected. `convert` silently returns the first match.",
+      "suggested_fix": "Optionally validate uniqueness of normalized values."
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "verdict": "approve",
+  "summary": "Docs-only FAQ and docstring warning; the `--wait`/`-w` flags are accurate and the `edit-wait` reference resolves.",
+  "findings": []
+}
