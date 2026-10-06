@@ -1,0 +1,1 @@
+{"verdict":"approve","summary":"Docs-only change: a FAQ entry and a warning in the edit() docstring explaining that launcher-style editors need a wait flag. The content is accurate and the :ref:`edit-wait` label matches the FAQ anchor.","findings":[]}

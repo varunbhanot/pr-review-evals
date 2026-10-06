@@ -1,0 +1,1 @@
+{"verdict":"approve","summary":"Catching KeyboardInterrupt around the pager stdin write matches the existing wait-loop handling and fixes the large-output case; no defects found.","findings":[]}

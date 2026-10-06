@@ -1,0 +1,1 @@
+{"verdict":"approve","summary":"Closing the temp file in the finally block before unlink is correct and idempotent on the success path, so the original exception is no longer masked on Windows. The regression test and the PAGER test-helper change are sound.","findings":[]}

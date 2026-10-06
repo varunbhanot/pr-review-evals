@@ -1,0 +1,14 @@
+{
+  "verdict": "request_changes",
+  "summary": "The overloads look reasonable, but the new typing test asserts the wrong variable inside the loop, so it would fail type checking.",
+  "findings": [
+    {
+      "file": "tests/typing/typing_progressbar.py",
+      "line": 13,
+      "severity": "major",
+      "category": "tests",
+      "explanation": "Inside `for i in bar:` the test calls `assert_type(bar, int)`. `bar` is a `ProgressBar[int]`, not an `int`, so mypy/pyright will report an error and the typing test fails. The intent is to check the iterated item `i`, as the second test does with `s`.",
+      "suggested_fix": "Change to `assert_type(i, int)`."
+    }
+  ]
+}

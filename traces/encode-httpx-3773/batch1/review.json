@@ -1,0 +1,14 @@
+{
+  "verdict": "request_changes",
+  "summary": "The updated assertion reads `content.encoding`, but `content` is a bytes object with no `encoding` attribute, so the test raises AttributeError. It should assert on `response.encoding`.",
+  "findings": [
+    {
+      "file": "tests/models/test_responses.py",
+      "line": 1017,
+      "severity": "blocker",
+      "category": "tests",
+      "explanation": "`content` is `text.encode(\"ISO-8859-1\")`, i.e. bytes, which has no `.encoding` attribute. The test fails with AttributeError regardless of chardet version. The original `response.encoding` assertion was replaced, so the detected encoding is never checked.",
+      "suggested_fix": "assert response.encoding in (\"ISO-8859-1\", \"WINDOWS-1252\")"
+    }
+  ]
+}

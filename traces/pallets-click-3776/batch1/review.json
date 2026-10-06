@@ -1,0 +1,1 @@
+{"verdict":"approve","summary":"Behavior-preserving refactor: pager command resolution is hoisted into one helper, and color None normalization is moved to get_pager_file via bool(color). Fallbacks to _nullpager and the Windows tempfile selection match the previous logic.","findings":[]}

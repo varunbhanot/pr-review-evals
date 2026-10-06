@@ -1,0 +1,14 @@
+{
+  "verdict": "request_changes",
+  "summary": "The guard `if color is None and cmd_name == \"less\":` in _pipepager was replaced by a comment, leaving an over-indented block that is an IndentationError and, if it parsed, would run less detection for every pager and override explicit color settings.",
+  "findings": [
+    {
+      "file": "src/click/_termui_impl.py",
+      "line": 578,
+      "severity": "blocker",
+      "category": "correctness",
+      "explanation": "The conditional guarding the less/raw-mode detection was removed and turned into a comment. The following indented lines (less_env = ..., if _less_uses_raw_mode ...) now sit under no block, which is an IndentationError and breaks importing click. Even if it parsed, dropping `color is None` and `cmd_name == \"less\"` would apply LESS=-R injection and color=True to every pager (cat, more) and override an explicit color=False/True from the caller. cmd_name is computed but never used.",
+      "suggested_fix": "Restore `if color is None and cmd_name == \"less\":` at 4-space indent above the less_env lines."
+    }
+  ]
+}

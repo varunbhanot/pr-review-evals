@@ -1,0 +1,1 @@
+{"verdict":"approve","summary":"One-word fix makes the temp file a text-mode file whose .buffer lets get_pager_file install MaybeStripAnsi, fixing the str write TypeError and color handling; tests cover both paths.","findings":[]}
