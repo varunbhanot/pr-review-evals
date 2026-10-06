@@ -1,0 +1,5 @@
+{
+  "verdict": "approve",
+  "summary": "Removes unused ctypes binding and fd constants from the private _winconsole module; none are referenced elsewhere in the file.",
+  "findings": []
+}

@@ -1,0 +1,5 @@
+{
+  "verdict": "approve",
+  "summary": "Lists all arguments when at least one is documented and makes `Argument.get_help_record` always return a tuple; docs, changelog and tests are consistent (deprecated and empty-help cases check out).",
+  "findings": []
+}

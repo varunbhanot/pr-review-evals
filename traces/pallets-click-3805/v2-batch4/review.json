@@ -1,0 +1,5 @@
+{
+  "verdict": "approve",
+  "summary": "Adds `__copy__`, `__deepcopy__` and `__reduce_ex__` to Sentinel so copies and pickles preserve identity, with good tests.",
+  "findings": []
+}

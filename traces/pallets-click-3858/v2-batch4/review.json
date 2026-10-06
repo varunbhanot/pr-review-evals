@@ -1,0 +1,5 @@
+{
+  "verdict": "approve",
+  "summary": "Makes `click.Path` generic on `path_type` with a TypeVar default, runtime fallback for older Pythons, and typing tests; runtime behavior is unchanged.",
+  "findings": []
+}

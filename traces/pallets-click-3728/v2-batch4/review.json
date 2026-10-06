@@ -1,0 +1,14 @@
+{
+  "verdict": "request_changes",
+  "summary": "The new implementation reverses the order of help option names, the opposite of the documented and tested behavior.",
+  "findings": [
+    {
+      "file": "src/click/core.py",
+      "line": 1185,
+      "severity": "blocker",
+      "category": "correctness",
+      "explanation": "`{name: None for name in reversed(list(ctx.help_option_names))}` builds the dict in reverse, so `[\"-h\", \"--help\"]` returns `[\"--help\", \"-h\"]`. The docstring, changelog and most new test cases require declaration order, and this changes the order shown in help for everyone.",
+      "suggested_fix": "Drop `reversed`: `{name: None for name in ctx.help_option_names}`."
+    }
+  ]
+}

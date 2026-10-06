@@ -1,0 +1,14 @@
+{
+  "verdict": "request_changes",
+  "summary": "Rewrite of echo's message handling breaks `click.echo()` with no message: None is no longer converted to an empty string before `nl` is appended.",
+  "findings": [
+    {
+      "file": "src/click/utils.py",
+      "line": 297,
+      "severity": "blocker",
+      "category": "correctness",
+      "explanation": "With `message=None` (plain `click.echo()`), `out` is None and the removed `out = out or \"\"` is gone, so `out += b\"\\n\"` runs on None and raises TypeError. Bare `echo()` is extremely common, and there is no test for it.",
+      "suggested_fix": "Use `case None: out = \"\"` (or keep an `out or \"\"` fallback for None only) and add a test for `click.echo()`."
+    }
+  ]
+}

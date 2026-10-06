@@ -1,0 +1,5 @@
+{
+  "verdict": "approve",
+  "summary": "Cleanly splits `Option.get_help_spec` out of `get_help_record`; behavior for visible and hidden options is preserved and tested.",
+  "findings": []
+}

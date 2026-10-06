@@ -1,0 +1,14 @@
+{
+  "verdict": "request_changes",
+  "summary": "Defers UNSET normalization, but the post-parse loop assigns UNSET back to itself instead of None, so UNSET leaks into user commands.",
+  "findings": [
+    {
+      "file": "src/click/core.py",
+      "line": 1240,
+      "severity": "blocker",
+      "category": "correctness",
+      "explanation": "The loop `if value is UNSET: ctx.params[name] = UNSET` is a no-op. The comment and the removed code say UNSET must become None, so any parameter left unset now passes the `Sentinel.UNSET` object to the command function.",
+      "suggested_fix": "Assign `None`: `ctx.params[name] = None`."
+    }
+  ]
+}
