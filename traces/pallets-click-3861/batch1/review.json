@@ -1,0 +1,14 @@
+{
+  "verdict": "request_changes",
+  "summary": "The refactor moving help handling into Parameter looks behavior-preserving, but the new deprecated-help test asserts inequality, so it checks nothing useful and would fail against correct behavior.",
+  "findings": [
+    {
+      "file": "tests/test_info_dict.py",
+      "line": 324,
+      "severity": "major",
+      "category": "tests",
+      "explanation": "test_param_to_info_dict_deprecated_help asserts `to_info_dict()[\"help\"] != help_out`. It should assert equality with the expected deprecated label. As written, the test fails when the code is correct (e.g. 'Pack the basket. (DEPRECATED)') and passes if the label is missing or wrong, so it provides no protection for the moved deprecated-label logic.",
+      "suggested_fix": "Change to `assert param.to_info_dict()[\"help\"] == help_out`."
+    }
+  ]
+}

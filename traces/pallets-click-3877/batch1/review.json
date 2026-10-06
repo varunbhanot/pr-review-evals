@@ -1,0 +1,22 @@
+{
+  "verdict": "request_changes",
+  "summary": "The spec/get_help_spec refactor is coherent, but the deprecated-and-required error path references `required.param_type_name`, where `required` is a bool, so it raises AttributeError instead of the intended ValueError.",
+  "findings": [
+    {
+      "file": "src/click/core.py",
+      "line": 2485,
+      "severity": "blocker",
+      "category": "correctness",
+      "explanation": "The message is built with `required.param_type_name`. `required` is a bool here (the branch is `if required and deprecated`), so this raises AttributeError ('bool' object has no attribute 'param_type_name') rather than the intended ValueError. Any user declaring a parameter that is both required and deprecated gets a confusing crash, and existing tests expecting ValueError would fail. The original code used `self.param_type_name`, as does the next line of the same message.",
+      "suggested_fix": "Use `self.param_type_name`: f\"The {self.param_type_name} '{self.spec}' is deprecated and still required. ...\""
+    },
+    {
+      "file": "tests/test_deprecations.py",
+      "line": 399,
+      "severity": "minor",
+      "category": "tests",
+      "explanation": "No new test covers the required+deprecated ValueError message, which now uses `spec`. That is how the broken attribute access above went unnoticed.",
+      "suggested_fix": "Add a test asserting `pytest.raises(ValueError, match=\"--my-option\")` for `click.Option(['--my-option'], required=True, deprecated=True)`."
+    }
+  ]
+}

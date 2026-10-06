@@ -1,0 +1,5 @@
+{
+  "verdict": "approve",
+  "summary": "format_arguments now lists every Argument when at least one has help, and Argument.get_help_record always returns a tuple. The logic is consistent with how Argument.__init__ sets help, including the deprecated label, and the tests cover the edge cases (undocumented only, empty string, deprecated, never-None).",
+  "findings": []
+}

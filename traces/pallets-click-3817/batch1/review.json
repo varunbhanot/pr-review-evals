@@ -1,0 +1,1 @@
+{"verdict":"approve","summary":"Removes the unused GetCommandLineW binding and STD*_FILENO constants from the private _winconsole module. Imports they depended on (LPWSTR, WINFUNCTYPE) are still used by CommandLineToArgvW and LocalFree, so nothing breaks.","findings":[]}

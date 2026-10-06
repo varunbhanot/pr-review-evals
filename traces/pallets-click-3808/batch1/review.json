@@ -1,0 +1,22 @@
+{
+  "verdict": "request_changes",
+  "summary": "Docs and tests freeze current container behavior, but one new test asserts the opposite of what its docstring and the documented table say, and another new test was inserted in the middle of an existing test, swallowing its remaining body.",
+  "findings": [
+    {
+      "file": "tests/test_types.py",
+      "line": 360,
+      "severity": "blocker",
+      "category": "tests",
+      "explanation": "test_convert_type_from_container_default asserts `convert_type(None, default) is not click.STRING`, but its docstring says container defaults fall back to STRING, and test_type_inferred_from_default (and the docs table) assert set/frozenset/dict/[]/() all give STRING. The assertion contradicts those tests, so it fails for every parametrized case (or, if it passed, would mean the documented behavior is wrong).",
+      "suggested_fix": "Change the assertion to `assert convert_type(None, default) is click.STRING`."
+    },
+    {
+      "file": "tests/test_options.py",
+      "line": 450,
+      "severity": "major",
+      "category": "tests",
+      "explanation": "test_envvar_container_type was inserted in the middle of an existing test whose body continues after it (the multiple/envvar `cmd` blocks, using envvar X and click.Path). Those blocks are now part of the new test instead of their original test, so the original test function is truncated and the new test has unrelated assertions mixed in. Test intent and failure reporting are muddled, and the original test's name no longer covers them.",
+      "suggested_fix": "Move test_envvar_container_type to after the end of the existing test (after its last assertion), keeping the original function body intact, with two blank lines between functions."
+    }
+  ]
+}

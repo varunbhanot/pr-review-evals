@@ -1,0 +1,1 @@
+{"verdict":"approve","summary":"Sentinel gains __copy__, __deepcopy__ and a __reduce_ex__ that pickles by (getattr, (cls, name)), so copy, deepcopy and pickle preserve member identity. The change is correct and well tested.","findings":[]}

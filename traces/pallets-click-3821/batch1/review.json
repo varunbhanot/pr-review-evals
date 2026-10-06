@@ -1,0 +1,5 @@
+{
+  "verdict": "approve",
+  "summary": "Pure refactor: the left-column logic moves unchanged into Option.get_help_spec, and get_help_record keeps its hidden check and calls it. Behavior for visible options is preserved, and the new parametrized test covers hidden and visible options plus slash-prefix separators.",
+  "findings": []
+}
